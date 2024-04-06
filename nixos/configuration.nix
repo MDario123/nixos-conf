@@ -70,7 +70,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdario = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "audio" "video" ];
     packages = with pkgs; [
       aria2
       cinnamon.nemo
