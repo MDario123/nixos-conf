@@ -18,8 +18,8 @@
     hyprlock
     hyprpaper
     libsecret
+    mako
     slurp
-    swaync
     waybar
   ];
 }
