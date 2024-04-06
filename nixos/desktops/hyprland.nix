@@ -18,6 +18,7 @@
     hyprlock
     hyprpaper
     libsecret
+    libnotify
     mako
     slurp
     waybar
