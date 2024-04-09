@@ -31,6 +31,7 @@
       nixos-update = "sudo nixos-rebuild switch --flake '/home/mdario/NixOS#mdario'";
       home-manager-update = "home-manager switch --flake '/home/mdario/NixOS#mdario'";
       fan-on = "sudo ~/Github/isw/result/usr/bin/isw -w 16R3EMS1";
+      code = "nix develop";
       ga = "git add .";
       gc = "git commit -m";
     };
