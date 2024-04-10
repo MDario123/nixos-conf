@@ -8,6 +8,13 @@
     # ./nvim/nvim.nix
     ./terminal.nix
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "BreezeX-RosePine-Linux";
+    package = pkgs.rose-pine-cursor;
+    size = 32;
+  };
   
   gtk = {
     enable = true;
