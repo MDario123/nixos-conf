@@ -19,12 +19,19 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ "mauve" ];
         size = "compact";
         tweaks = [ "rimless" ];
         variant = "mocha";
+      };
+    };
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "mauve";
       };
     };
   };
@@ -95,7 +102,7 @@
   };
 
   home.sessionVariables = {
-    GTK_THEME= "Catppuccin-Mocha-Compact-Pink-Dark";
+    GTK_THEME= "Catppuccin-Mocha-Compact-Mauve-Dark";
     EDITOR = "nvim";
   };
 
