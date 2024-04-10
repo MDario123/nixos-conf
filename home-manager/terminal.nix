@@ -34,6 +34,7 @@
       code = "nix develop";
       ga = "git add .";
       gc = "git commit -m";
+      gac = "git add . && git commit -m";
     };
 
     oh-my-zsh = {
@@ -44,5 +45,10 @@
         # "zsh-history-substring-search" 
       ];
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }
