@@ -89,7 +89,7 @@
 
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Mocha";
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

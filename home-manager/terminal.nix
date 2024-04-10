@@ -23,7 +23,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     # historySubstringSearch.enable = true;
 
@@ -36,7 +36,7 @@
       gc = "git commit -m";
     };
 
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       theme = "awesomepanda";
       plugins = [ 
