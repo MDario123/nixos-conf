@@ -11,7 +11,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      name = "Catppuccin-Mocha";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "pink" ];
         size = "compact";
@@ -87,7 +87,7 @@
   };
 
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Mocha-Compact-Pink-Dark";
+    GTK_THEME = "Catppuccin-Mocha";
     # EDITOR = "emacs";
   };
 

@@ -117,7 +117,6 @@
 
   environment.variables = {
     SHELL = "$(which zsh)";
-    GTK_THEME = "Catppuccin-Mocha-Compact-Pink-Dark";
   };
 
   fonts.packages = with pkgs; [
