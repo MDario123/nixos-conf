@@ -7,7 +7,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./terminal.nix
       ./desktops/hyprland.nix
       ./programming.nix
     ];
