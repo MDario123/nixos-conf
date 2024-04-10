@@ -33,6 +33,7 @@
   services.mako = {
     enable = true;
     maxVisible = 5;
+    output = "eDP-1";
     sort = "-time";
     layer = "overlay";
     anchor = "top-right";
