@@ -7,7 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./terminal.nix
+      # ./terminal.nix
       ./desktops/hyprland.nix
       ./programming.nix
     ];
@@ -67,6 +67,8 @@
       commands = [ { command = "/home/mdario/Github/isw/result/usr/bin/isw"; options = ["NOPASSWD"]; } ];
     }
   ];
+
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdario = {
     isNormalUser = true;

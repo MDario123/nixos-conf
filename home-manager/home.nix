@@ -6,6 +6,7 @@
 
   imports = [
     # ./nvim/nvim.nix
+    ./terminal.nix
   ];
   
   gtk = {
