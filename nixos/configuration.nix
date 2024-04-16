@@ -58,6 +58,15 @@
     gamescopeSession.enable = true;
   };
 
+  services.softether = {
+    enable = true;
+    vpnclient = {
+      enable = true;
+      up = "";
+      down = "";
+    };
+  };
+
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
 
   security.sudo.extraRules = [
@@ -106,7 +115,6 @@
     openvpn
     ouch
     ripgrep
-    softether
     tldr
     unrar
     unzip
