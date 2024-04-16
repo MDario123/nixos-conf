@@ -106,6 +106,7 @@
     openvpn
     ouch
     ripgrep
+    softether
     tldr
     unrar
     unzip
