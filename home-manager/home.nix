@@ -55,6 +55,7 @@
     font = "FantasqueSansM Nerd Font Mono";
     backgroundColor = "#1E1E1E";
     textColor = "#D0F0F0";
+    actions = true;
     width = 300;
     height = 200;
     margin = "10";
