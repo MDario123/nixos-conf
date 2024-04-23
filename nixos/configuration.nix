@@ -20,6 +20,7 @@
 
   networking.hostName = "MDario"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.interfaces."vpn_vpn".useDHCP = true;
 
   # Set your time zone.
   time.timeZone = "America/Havana";
@@ -107,6 +108,7 @@
   environment.systemPackages = with pkgs; [
     cargo
     gnomeExtensions.appindicator
+    hakuneko
     home-manager
     htop
     lshw
