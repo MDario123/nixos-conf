@@ -24,5 +24,6 @@
     mako
     slurp
     waybar
+    zenity
   ];
 }
