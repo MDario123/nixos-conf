@@ -24,6 +24,6 @@
     mako
     slurp
     waybar
-    zenity
+    gnome.zenity
   ];
 }
