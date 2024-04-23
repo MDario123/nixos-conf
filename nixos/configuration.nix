@@ -9,6 +9,7 @@
       ./hardware-configuration.nix
       ./desktops/hyprland.nix
       ./programming.nix
+      ./gaming.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
