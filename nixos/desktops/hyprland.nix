@@ -14,6 +14,7 @@
   programs.light.enable = true;
 
   environment.systemPackages = with pkgs; [
+    bc
     bemenu
     eww
     grim
