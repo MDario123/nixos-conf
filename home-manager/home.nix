@@ -7,6 +7,7 @@
   imports = [
     # ./nvim/nvim.nix
     ./terminal.nix
+    ./hyprland.nix
   ];
 
   xdg.dataFile."sounds/MDario-theme/" = {
