@@ -33,12 +33,12 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  services.libinput.enable = true;
   # X11 windowing system.
   services.xserver = {
     enable = true;
     xkb.layout = "us";
     xkb.options = "caps:backspace";
-    libinput.enable = true;
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
   };
