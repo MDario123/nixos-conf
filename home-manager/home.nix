@@ -9,6 +9,10 @@
     ./terminal.nix
   ];
 
+  xdg.dataFile."sounds/MDario-theme/" = {
+    source = ./resources/sounds/MDario-theme;
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     name = "BreezeX-RosePine-Linux";
