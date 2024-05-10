@@ -15,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     bc
-    bemenu
     eww
     grim
     hyprlock

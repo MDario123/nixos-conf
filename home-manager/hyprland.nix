@@ -131,7 +131,7 @@
         "$mainMod, E, exec, nemo"
         "$mainMod, L, exec, hyprlock"
         "$mainMod, F1, exec, firefox"
-        "$mainMod, O, exec, bemenu-run -b"
+        "$mainMod, O, exec, yofi"
         "$mainMod, P, exec, grim -g \"$(slurp)\" Pictures/Screenshots/$(date +'%s_grim.png') # Screenshot"
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)' # Notes"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
