@@ -83,13 +83,11 @@
       kitty
       krita
       libreoffice
-      starship
       telegram-desktop
-      tree
       wine
     ];
-    shell = pkgs.zsh;
   };
+  users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -104,7 +102,9 @@
     openvpn
     ouch
     ripgrep
+    starship
     tldr
+    tree
     unrar
     unzip
     vim 
