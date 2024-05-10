@@ -51,15 +51,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Steam 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-
-    gamescopeSession.enable = true;
-  };
-
   services.softether = {
     enable = true;
     vpnclient = {
@@ -92,11 +83,7 @@
       kitty
       krita
       libreoffice
-      lua-language-server
-      lutris
       starship
-      steam
-      steam-run
       telegram-desktop
       tree
       wine
@@ -108,8 +95,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bottom
-    cargo
-    gnomeExtensions.appindicator
     hakuneko
     home-manager
     htop
