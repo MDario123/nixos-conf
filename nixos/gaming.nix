@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  boot.kernelModules = [ "xpadneo" ];
+  hardware.xpadneo.enable = true;
   environment.systemPackages = with pkgs; [
     ppsspp
   ];
