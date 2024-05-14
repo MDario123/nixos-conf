@@ -84,6 +84,7 @@
       kitty
       krita
       libreoffice
+      papirus-icon-theme
       telegram-desktop
       wine
     ];
