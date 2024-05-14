@@ -22,7 +22,6 @@
     libsecret
     libnotify
     mako
-    papirus-icon-theme
     slurp
     waybar
     yofi
