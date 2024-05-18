@@ -13,6 +13,21 @@
 
   programs.light.enable = true;
 
+  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+  services.mpd = {
+    enable = true;
+    user = "mdario";
+    musicDirectory = "${config.users.users."mdario".home}/Music";
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "PulseAudio" 
+        server "127.0.0.1" 
+      }
+    '';
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
+
   environment.systemPackages = with pkgs; [
     bc
     eww
@@ -24,6 +39,7 @@
     mako
     slurp
     waybar
+    ymuse
     yofi
     gnome.zenity
   ];
