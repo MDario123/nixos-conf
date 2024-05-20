@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   # Enable OpenGL
@@ -16,7 +17,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
 
   hardware.nvidia = {
 
@@ -25,11 +26,11 @@
 
     prime = {
       offload = {
-			  enable = true;
-  			enableOffloadCmd = true;
-	  	};
+        enable = true;
+        enableOffloadCmd = true;
+      };
       # sync.enable = true;
-	    nvidiaBusId = "PCI:1:0:0";
+      nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
     };
 
@@ -53,7 +54,7 @@
     open = false;
 
     # Enable the Nvidia settings menu,
-	  # accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
@@ -70,28 +71,31 @@
   '';
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/37afe7c0-9569-4cab-9b61-ce3247718308";
+    {
+      device = "/dev/disk/by-uuid/37afe7c0-9569-4cab-9b61-ce3247718308";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D865-705B";
+    {
+      device = "/dev/disk/by-uuid/D865-705B";
       fsType = "vfat";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/48808a51-d80a-454f-9d00-8ff88248df15";
+    {
+      device = "/dev/disk/by-uuid/48808a51-d80a-454f-9d00-8ff88248df15";
       fsType = "ext4";
     };
 
   fileSystems."/home/games" =
-    { device = "/dev/disk/by-uuid/f753dbfc-f9e1-4d52-a9ca-3e5fcdb07bd3";
+    {
+      device = "/dev/disk/by-uuid/f753dbfc-f9e1-4d52-a9ca-3e5fcdb07bd3";
       fsType = "ext4";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/59b485a2-c443-4547-b6ef-d04216513d30"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/59b485a2-c443-4547-b6ef-d04216513d30"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

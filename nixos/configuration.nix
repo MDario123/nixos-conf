@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktops/hyprland.nix
       ./programming.nix
@@ -21,7 +22,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "MDario"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   networking.interfaces."vpn_vpn".useDHCP = true;
 
   # Set your time zone.
@@ -66,7 +67,7 @@
   security.sudo.extraRules = [
     {
       users = [ "mdario" ];
-      commands = [ { command = "/home/mdario/Github/isw/result/usr/bin/isw"; options = ["NOPASSWD"]; } ];
+      commands = [{ command = "/home/mdario/Github/isw/result/usr/bin/isw"; options = [ "NOPASSWD" ]; }];
     }
   ];
 
@@ -109,7 +110,7 @@
     tree
     unrar
     unzip
-    vim 
+    vim
     wget
     wl-clipboard
     w3m

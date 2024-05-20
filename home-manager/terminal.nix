@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, ... }:
 
 {
   programs.kitty = {
@@ -57,7 +57,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "awesomepanda";
-      plugins = [ 
+      plugins = [
         "sudo"
         # "zsh-history-substring-search" 
       ];

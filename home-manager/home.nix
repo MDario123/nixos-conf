@@ -20,7 +20,7 @@
     package = pkgs.rose-pine-cursor;
     size = 32;
   };
-  
+
   gtk = {
     enable = true;
     theme = {
@@ -108,7 +108,7 @@
   };
 
   home.sessionVariables = {
-    GTK_THEME= "Catppuccin-Mocha-Compact-Mauve-Dark";
+    GTK_THEME = "Catppuccin-Mocha-Compact-Mauve-Dark";
     EDITOR = "nvim";
   };
 

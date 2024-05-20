@@ -15,7 +15,7 @@
         kb_options = "caps:backspace, grp:alt_shift_toggle";
 
         follow_mouse = 1;
-        touchpad= {
+        touchpad = {
           natural_scroll = true;
         };
         sensitivity = 0;
@@ -57,7 +57,7 @@
         bezier = [
           "myBezier, 0.00, 1.0, 0.0, 1.00"
         ];
-  
+
         animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, myBezier, popin 80%"
@@ -74,7 +74,7 @@
       };
 
       gestures = {
-          workspace_swipe = true;
+        workspace_swipe = true;
       };
 
       misc = {
@@ -108,7 +108,7 @@
       "$mainMod" = "SUPER";
 
       "$notifyVolume" = "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %' | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && aplay \"$HOME/.local/share/sounds/MDario-theme/tap-notification.wav\"";
-      
+
       "$notifyBacklight" = "light -G | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Backlight\"";
 
       bind = [
@@ -118,14 +118,14 @@
         "$mainMod SHIFT, F, fullscreen, 1,"
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod, M, exit"
-        
+
         # system management
         "$mainMod, right, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%; $notifyVolume"
         "$mainMod, left, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%; $notifyVolume"
         "$mainMod, up, exec, light -A 5; $notifyBacklight"
         "$mainMod, down, exec, light -U 5; $notifyBacklight"
         "$mainMod, R, exec, eww close-all"
-        
+
         # Main applications
         "$mainMod, Q, exec, kitty"
         "$mainMod, E, exec, nemo"
@@ -135,13 +135,13 @@
         "$mainMod, P, exec, grim -g \"$(slurp)\" ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png') # Screenshot"
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)' # Notes"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
-        
+
         # Move focus 
         "$mainMod, h, cyclenext, prev"
         "$mainMod, k, cyclenext, "
         "$mainMod, s, swapactiveworkspaces, current +1"
         "$mainMod, Tab, workspace, e+1"
-        
+
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -153,7 +153,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-   
+
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"

@@ -11,7 +11,7 @@
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable";
   };
 
-  outputs = { self, nixpkgs, home-manager, flatpaks, ... } @ inputs :
+  outputs = { self, nixpkgs, home-manager, flatpaks, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -21,7 +21,8 @@
           allowUnfree = true;
         };
       };
-    in {
+    in
+    {
       devShells.${system}.default = pkgs.clangStdenv.mkDerivation {
         name = "shell";
         nativeBuildInputs = with pkgs; [
@@ -29,7 +30,7 @@
         ];
         shellHook = "nvim";
       };
- 
+
       nixosConfigurations = {
         mdario = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs outputs; };
