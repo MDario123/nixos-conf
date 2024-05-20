@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
     ppsspp
     lutris
-    steam
     steam-run
   ];
 
@@ -18,15 +17,13 @@
     packages = [
       "flathub:app/com.valvesoftware.Steam//stable"
     ];
+    overrides = {
+      "global" = {
+        filesystems = [
+          "/home/games/SteamLibrary/"
+        ];
+      };
+    };
   };
-
-  # Steam 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
-  };
-
 }
 
