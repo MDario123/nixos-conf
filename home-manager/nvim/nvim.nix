@@ -41,6 +41,12 @@
         type = "lua";
         config = builtins.readFile ./plugin/nvim-tree.lua;
       }
+
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/which-key.lua;
+      }
       # neodev-nvim
       nvim-cmp
       telescope-nvim
@@ -50,7 +56,7 @@
       # luasnip
       # friendly-snippets
       # lualine-nvim
-      # nvim-web-icons
+      nvim-web-devicons
       (nvim-treesitter.withPlugins (p: [
         p.tree-sitter-nix
         p.tree-sitter-lua
