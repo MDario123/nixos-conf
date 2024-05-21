@@ -96,6 +96,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bottom
+    fzf
     hakuneko
     home-manager
     htop
@@ -141,4 +142,3 @@
   nixpkgs.config.allowUnfree = true;
 
 }
-
