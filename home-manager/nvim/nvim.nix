@@ -30,7 +30,17 @@
         config = builtins.readFile ./plugin/lsp.lua;
       }
 
-      catppuccin-nvim
+      {
+        plugin = catppuccin-nvim;
+        type = "lua";
+        config = ''vim.cmd.colorscheme "catppuccin-mocha"'';
+      }
+
+      {
+        plugin = nvim-tree-lua;
+        type = "lua";
+        config = builtins.readFile ./plugin/nvim-tree.lua;
+      }
       # neodev-nvim
       nvim-cmp
       telescope-nvim
