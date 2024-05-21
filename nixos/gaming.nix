@@ -3,7 +3,6 @@
 {
   hardware.xpadneo.enable = true;
   environment.systemPackages = with pkgs; [
-    gamemode
     lutris
     mangohud
     ppsspp
@@ -11,6 +10,12 @@
     steam-run
     vulkan-tools
   ];
+
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+  users.users.mdario.extraGroups = [ "gamemode" ];
 
   programs.gamescope = {
     enable = true;
