@@ -17,22 +17,10 @@
   };
   users.users.mdario.extraGroups = [ "gamemode" ];
 
-  programs.gamescope = {
-    enable = true;
-    args = [
-      # "--expose-wayland"
-    ];
-    # env = {
-    #   __NV_PRIME_RENDER_OFFLOAD = "1";
-    #   __VK_LAYER_NV_optimus = "NVIDIA_only";
-    #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    # };
-  };
-
   hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
-    extest.enable = true;
+    # extest.enable = true;
 
     dedicatedServer.openFirewall = true;
     remotePlay.openFirewall = true;
