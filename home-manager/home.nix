@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/mdario";
 
   imports = [
-    # ./nvim/nvim.nix
+    ./nvim/nvim.nix
     ./terminal.nix
     ./hyprland.nix
   ];
