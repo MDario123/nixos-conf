@@ -10,8 +10,8 @@
 
     extraPackages = with pkgs; [
       # LSPs
-      # lua-language-server
-      # rnix-lsp
+      lua-language-server
+      nil
 
       # General dependencies
       # wl-clipboard
@@ -26,7 +26,7 @@
       {
         plugin = comment-nvim;
         type = "lua";
-        config = "require(\"Comment\").setup()";
+        config = ''require("Comment").setup()'';
       }
       {
         plugin = nvim-lspconfig;
@@ -59,15 +59,17 @@
       }
 
       {
-        plugin = (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-lua
-          p.tree-sitter-rust
-          # p.tree-sitter-cpp
-        ]));
+        plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = builtins.readFile ./plugin/tree-sitter.lua;
       }
+
+      {
+	plugin = nvterm;
+	type = "lua";
+	config = builtins.readFile ./plugin/nvterm.lua;
+      }
+
       # neodev-nvim
       nvim-cmp
       telescope-fzf-native-nvim
