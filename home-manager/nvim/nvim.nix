@@ -51,9 +51,25 @@
         type = "lua";
         config = builtins.readFile ./plugin/which-key.lua;
       }
+
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/telescope.lua;
+      }
+
+      {
+        plugin = (nvim-treesitter.withPlugins (p: [
+          p.tree-sitter-nix
+          p.tree-sitter-lua
+          p.tree-sitter-rust
+          # p.tree-sitter-cpp
+        ]));
+        type = "lua";
+        config = builtins.readFile ./plugin/tree-sitter.lua;
+      }
       # neodev-nvim
       nvim-cmp
-      telescope-nvim
       telescope-fzf-native-nvim
       # cmp_luasnip
       # cmp-nvim-lsp
@@ -61,12 +77,7 @@
       # friendly-snippets
       # lualine-nvim
       nvim-web-devicons
-      (nvim-treesitter.withPlugins (p: [
-        p.tree-sitter-nix
-        p.tree-sitter-lua
-        p.tree-sitter-rust
-        p.tree-sitter-cpp
-      ]))
+
     ];
 
   };
