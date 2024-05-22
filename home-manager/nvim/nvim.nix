@@ -71,7 +71,7 @@
       }
 
       {
-	plugin = barbar;
+	plugin = barbar-nvim;
 	type = "lua";
 	config = builtins.readFile ./plugin/barbar.lua;
       }

@@ -40,6 +40,7 @@
     waybar
     ymuse
     yofi
+    youtube-dl
     gnome.zenity
   ];
 }
