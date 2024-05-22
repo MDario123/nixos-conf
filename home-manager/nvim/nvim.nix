@@ -70,12 +70,6 @@
 	config = builtins.readFile ./plugin/nvterm.lua;
       }
 
-      {
-	plugin = scope;
-	type = "lua";
-	config = builtins.readFile ./plugin/scope.lua;
-      }
-
       # neodev-nvim
       nvim-cmp
       telescope-fzf-native-nvim
