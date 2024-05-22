@@ -18,6 +18,10 @@
       # ripgrep
     ];
 
+    extraLuaConfig = ''
+      ${builtins.readFile ./options.lua}
+    '';
+
     plugins = with pkgs.vimPlugins; [
       {
         plugin = comment-nvim;
@@ -65,8 +69,5 @@
       ]))
     ];
 
-    extraLuaConfig = ''
-      ${builtins.readFile ./options.lua}
-    '';
   };
 }
