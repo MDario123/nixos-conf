@@ -70,6 +70,12 @@
 	config = builtins.readFile ./plugin/nvterm.lua;
       }
 
+      {
+	plugin = barbar;
+	type = "lua";
+	config = builtins.readFile ./plugin/barbar.lua;
+      }
+
       # neodev-nvim
       nvim-cmp
       telescope-fzf-native-nvim
