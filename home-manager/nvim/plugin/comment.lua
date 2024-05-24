@@ -6,6 +6,6 @@ vim.keymap.set('n', '<Leader>/',
       end,
 { desc = 'Go to next buffer' })
 
-vim.keymap.set('n', '<Leader>/',
+vim.keymap.set('v', '<Leader>/',
 "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 { desc = 'Go to next buffer' })
