@@ -36,6 +36,7 @@
     libsecret
     libnotify
     mako
+    mpc
     slurp
     waybar
     ymuse
