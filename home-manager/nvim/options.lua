@@ -14,15 +14,49 @@ vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+-- Add mappings to change that
+vim.keymap.set('n', '<Leader>n', '<Cmd> set nu! <CR>', { desc = 'Toggle line number' })
+vim.keymap.set('n', '<Leader>rn', '<Cmd> set rnu! <CR>', { desc = 'Toggle relative number' })
+
+-- Global statusline
+vim.opt.laststatus = 3
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
+
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
+
+-- Indenting
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+
+vim.opt.fillchars = { eob = " " }
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- disable nvim intro
+vim.opt.shortmess:append "sI"
+
+vim.opt.signcolumn = "yes"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.termguicolors = true
+vim.opt.timeoutlen = 400
+vim.opt.undofile = true
+
+-- interval for writing swap file to disk, also used by gitsigns
+vim.opt.updatetime = 250
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+vim.opt.whichwrap:append "<>[]hl"
+
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = true
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.

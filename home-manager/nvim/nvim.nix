@@ -26,7 +26,7 @@
       {
         plugin = comment-nvim;
         type = "lua";
-        config = ''require("Comment").setup()'';
+        config = builtins.readFile ./plugin/comment.lua;
       }
       {
         plugin = nvim-lspconfig;
