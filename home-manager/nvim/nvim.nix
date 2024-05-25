@@ -13,6 +13,10 @@
       lua-language-server
       nil
 
+      # Formatter
+      nixpkgs-fmt
+
+
       # General dependencies
       # wl-clipboard
       # ripgrep
@@ -49,7 +53,7 @@
       {
         plugin = which-key-nvim;
         type = "lua";
-        config = builtins.readFile ./plugin/which-key.lua;
+        config = ''require('which-key').setup()'';
       }
 
       {
