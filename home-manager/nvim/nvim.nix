@@ -77,7 +77,7 @@
       }
 
       {
-        plugin = none-ls;
+        plugin = none-ls-nvim;
         type = "lua";
         config = builtins.readFile ./plugin/none-ls.lua;
       }

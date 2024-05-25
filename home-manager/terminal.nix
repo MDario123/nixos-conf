@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = "FantasqueSansM Nerd Font Mono";
-      size = 16;
+      size = 14;
       package = with pkgs; (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; });
     };
     settings = {
@@ -16,6 +16,7 @@
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
     };
     theme = "Catppuccin-Mocha";
+    enabled_layouts = [ "tall" "fat" ];
   };
 
   programs.starship = {
