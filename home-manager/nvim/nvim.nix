@@ -65,25 +65,30 @@
       }
 
       {
-	plugin = nvterm;
-	type = "lua";
-	config = builtins.readFile ./plugin/nvterm.lua;
+        plugin = nvterm;
+        type = "lua";
+        config = builtins.readFile ./plugin/nvterm.lua;
       }
 
       {
-	plugin = barbar-nvim;
-	type = "lua";
-	config = builtins.readFile ./plugin/barbar.lua;
+        plugin = barbar-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/barbar.lua;
       }
 
+      {
+        plugin = none-ls;
+        type = "lua";
+        config = builtins.readFile ./plugin/none-ls.lua;
+      }
       # neodev-nvim
       nvim-cmp
       telescope-fzf-native-nvim
-      # cmp_luasnip
-      # cmp-nvim-lsp
-      # luasnip
-      # friendly-snippets
-      # lualine-nvim
+      cmp_luasnip
+      cmp-nvim-lsp
+      luasnip
+      friendly-snippets
+      lualine-nvim
       nvim-web-devicons
 
     ];
