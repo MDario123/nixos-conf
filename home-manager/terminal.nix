@@ -16,7 +16,11 @@
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
     };
     theme = "Catppuccin-Mocha";
-    enabled_layouts = [ "tall" "fat" ];
+    extraConfig = ''
+      map f1 launch --cwd=current
+      map f2 close_window
+      enabled_layouts tall,fat
+    '';
   };
 
   programs.starship = {
