@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = "FantasqueSansM Nerd Font Mono";
-      size = 14;
+      size = 13;
       package = with pkgs; (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; });
     };
     settings = {
@@ -37,7 +37,7 @@
         disabled = true;
       };
       git_status = {
-        disabled = true;
+        disabled = false;
       };
     };
   };
