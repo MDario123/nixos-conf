@@ -12,14 +12,16 @@
       # LSPs
       lua-language-server
       nil
+      python312Packages.python-lsp-server
 
       # Formatter
       nixpkgs-fmt
+      python312Packages.black
 
 
       # General dependencies
-      # wl-clipboard
-      # ripgrep
+      wl-clipboard
+      ripgrep
     ];
 
     extraLuaConfig = ''

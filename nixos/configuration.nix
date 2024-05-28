@@ -23,7 +23,6 @@
 
   networking.hostName = "MDario"; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  networking.interfaces."vpn_vpn".useDHCP = true;
 
   # Set your time zone.
   time.timeZone = "America/Havana";
@@ -52,15 +51,6 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-
-  services.softether = {
-    enable = true;
-    vpnclient = {
-      enable = true;
-      up = "";
-      down = "";
-    };
-  };
 
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
 

@@ -8,10 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, flatpaks, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, nur, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -35,7 +35,7 @@
         mdario = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs outputs; };
           modules = [
-            flatpaks.nixosModules.default
+            nur.nixosModules.nur
             ./nixos/configuration.nix
           ];
         };

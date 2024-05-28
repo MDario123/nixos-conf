@@ -35,7 +35,7 @@ lspconfig.nil_ls.setup {
 lspconfig.rust_analyzer.setup {
   -- on_attach = on_attach,
   capabilities = M.capabilities,
-  filetypes = {"rust"},
+  filetypes = { "rust" },
   root_dir = util.root_pattern("Cargo.toml"),
   settings = {
     ['rust-analyzer'] = {
@@ -49,7 +49,7 @@ lspconfig.rust_analyzer.setup {
 lspconfig.gopls.setup {
   -- on_attach = on_attach,
   capabilities = M.capabilities,
-  cmd = {"gopls"},
+  cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
@@ -68,5 +68,10 @@ lspconfig.clangd.setup {
   --   client.server_capabilities.signatureHelpProvider = false
   --   on_attach(client, bufnr)
   -- end,
+  capabilities = M.capabilities,
+}
+
+lspconfig.pylsp.setup {
+  -- on_attach = on_attach,
   capabilities = M.capabilities,
 }
