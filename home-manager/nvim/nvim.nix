@@ -93,13 +93,14 @@
       # Completion
       luasnip
       friendly-snippets
-      nvim-cmp
       cmp_luasnip
       cmp-nvim-lsp
       cmp-path
-
-
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./plugin/cmp.lua;
+      }
     ];
-
   };
 }
