@@ -29,73 +29,75 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
+      # UI
+      nvim-web-devicons
+      {
+        plugin = catppuccin-nvim;
+        type = "lua";
+        config = ''vim.cmd.colorscheme "catppuccin-mocha"'';
+      }
+      {
+        plugin = nvim-tree-lua;
+        type = "lua";
+        config = builtins.readFile ./plugin/nvim-tree.lua;
+      }
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = ''require('which-key').setup()'';
+      }
+      {
+        plugin = nvterm;
+        type = "lua";
+        config = builtins.readFile ./plugin/nvterm.lua;
+      }
+      {
+        plugin = barbar-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/barbar.lua;
+      }
+      {
+        # https://github.com/nvim-lualine/lualine.nvim
+        plugin = lualine-nvim;
+        type = "lua";
+        config = "require('lualine').setup()";
+      }
+      # Utils
       {
         plugin = comment-nvim;
         type = "lua";
         config = builtins.readFile ./plugin/comment.lua;
       }
       {
-        plugin = nvim-lspconfig;
-        type = "lua";
-        config = builtins.readFile ./plugin/lsp.lua;
-      }
-
-      {
-        plugin = catppuccin-nvim;
-        type = "lua";
-        config = ''vim.cmd.colorscheme "catppuccin-mocha"'';
-      }
-
-      {
-        plugin = nvim-tree-lua;
-        type = "lua";
-        config = builtins.readFile ./plugin/nvim-tree.lua;
-      }
-
-      {
-        plugin = which-key-nvim;
-        type = "lua";
-        config = ''require('which-key').setup()'';
-      }
-
-      {
         plugin = telescope-nvim;
         type = "lua";
         config = builtins.readFile ./plugin/telescope.lua;
       }
-
       {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = builtins.readFile ./plugin/tree-sitter.lua;
       }
-
+      # LSP related
       {
-        plugin = nvterm;
+        plugin = nvim-lspconfig;
         type = "lua";
-        config = builtins.readFile ./plugin/nvterm.lua;
+        config = builtins.readFile ./plugin/lsp.lua;
       }
-
-      {
-        plugin = barbar-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugin/barbar.lua;
-      }
-
       {
         plugin = none-ls-nvim;
         type = "lua";
         config = builtins.readFile ./plugin/none-ls.lua;
       }
-      # neodev-nvim
-      nvim-cmp
-      telescope-fzf-native-nvim
-      cmp_luasnip
-      cmp-nvim-lsp
+
+      # Completion
       luasnip
       friendly-snippets
-      lualine-nvim
-      nvim-web-devicons
+      nvim-cmp
+      cmp_luasnip
+      cmp-nvim-lsp
+      cmp-path
+
 
     ];
 
