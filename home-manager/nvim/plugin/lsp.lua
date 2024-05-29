@@ -3,6 +3,7 @@ local util = require("lspconfig/util")
 
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = vim.tbl_deep_extend('force', M.capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 lspconfig.lua_ls.setup {
   -- on_attach = M.on_attach,
