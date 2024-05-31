@@ -86,6 +86,7 @@
     home-manager
     htop
     lshw
+    jq
     neovim
     obsidian
     openvpn
