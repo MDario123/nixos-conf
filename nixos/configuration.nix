@@ -45,14 +45,9 @@
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
-  # Bluetooth
-  services.blueman.enable = true;
-
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-
-  xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
 
   security.sudo.extraRules = [
     {

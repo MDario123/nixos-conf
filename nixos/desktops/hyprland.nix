@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
+
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true; # enable the graphical frontend
   security.pam.services.gdm.enableGnomeKeyring = true; # load gnome-keyring at startup
@@ -10,8 +13,12 @@
     enable = true;
   };
 
+  # Screen backlight
   programs.light.enable = true;
+  # Bluetooth (GUI)
+  services.blueman.enable = true;
 
+  # mpd (music player)
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   services.mpd = {
     enable = true;
