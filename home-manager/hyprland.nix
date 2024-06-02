@@ -102,7 +102,7 @@
       exec-once = [
         "hyprpaper"
         "sudo /home/mdario/Github/isw/result/usr/bin/isw -w 16R3EMS1"
-        "eww open bar"
+        "eww open-many bar connect"
       ];
 
       "$mainMod" = "SUPER";
