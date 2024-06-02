@@ -81,6 +81,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bottom
+    eza
     fzf
     hakuneko
     home-manager
@@ -92,6 +93,7 @@
     openvpn
     ouch
     ripgrep
+    socat
     starship
     tldr
     tree
