@@ -47,8 +47,13 @@
     slurp
     waybar
     ymuse
-    yofi
     youtube-dl
     gnome.zenity
+
+    # Application picker
+    # https://codeberg.org/dnkl/fuzzel
+    fuzzel
+    # https://github.com/marty-oehme/bemoji
+    bemoji
   ];
 }
