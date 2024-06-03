@@ -101,7 +101,6 @@
 
       exec-once = [
         "hyprpaper"
-        "sudo /home/mdario/Github/isw/result/usr/bin/isw -w 16R3EMS1"
         "eww open-many bar connect"
       ];
 

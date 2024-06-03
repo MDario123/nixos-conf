@@ -8,7 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
+    # nur.url = "github:nix-community/NUR";
+    isw-nix = {
+      url = "github:iannisimo/isw-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... } @ inputs:
@@ -23,20 +27,14 @@
       };
     in
     {
-      devShells.${system}.default = pkgs.clangStdenv.mkDerivation {
-        name = "shell";
-        nativeBuildInputs = with pkgs; [
-          rnix-lsp
-        ];
-        shellHook = "nvim";
-      };
-
       nixosConfigurations = {
         mdario = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs outputs; };
           modules = [
-            nur.nixosModules.nur
+            inputs.isw-nix.nixosModule
             ./nixos/configuration.nix
+            ./nixos/hardware/msi.nix
+            ./nixos/hardware/nvidia.nix
           ];
         };
       };
