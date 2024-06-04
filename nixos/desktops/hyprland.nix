@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, system, ... }:
 
 {
 
@@ -49,6 +49,10 @@
     ymuse
     youtube-dl
     gnome.zenity
+
+    # Simple and flexbile QtQuick based desktop shell toolkit.
+    # https://git.outfoxxed.me/outfoxxed/quickshell
+    inputs.quickshell.packages.${system}.default
 
     # Application picker
     # https://codeberg.org/dnkl/fuzzel
