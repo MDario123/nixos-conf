@@ -131,7 +131,7 @@
         "$mainMod, L, exec, hyprlock"
         "$mainMod, F1, exec, firefox"
         "$mainMod, O, exec, fuzzel"
-        "$mainMod, S, exec, bemoji"
+        "$mainMod, S, exec, bemoji -n"
         "$mainMod, P, exec, grim -g \"$(slurp)\" ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png') # Screenshot"
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)' # Notes"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
