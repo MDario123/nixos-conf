@@ -139,7 +139,7 @@
         # Move focus 
         "$mainMod, h, cyclenext, prev"
         "$mainMod, k, cyclenext, "
-        "$mainMod, s, swapactiveworkspaces, current +1"
+        "$mainMod SHIFT, s, swapactiveworkspaces, current +1"
         "$mainMod, Tab, workspace, e+1"
 
         # Switch workspaces with mainMod + [0-9]
