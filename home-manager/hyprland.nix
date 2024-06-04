@@ -137,9 +137,9 @@
         "$mainMod, W, exec, lutris lutris:rungameid/2"
 
         # Move focus 
-        "$mainMod, h, cyclenext, prev"
-        "$mainMod, k, cyclenext, "
-        "$mainMod SHIFT, s, swapactiveworkspaces, current +1"
+        "$mainMod, H, cyclenext, prev"
+        "$mainMod, K, cyclenext, "
+        "$mainMod SHIFT, S, swapactiveworkspaces, current +1"
         "$mainMod, Tab, workspace, e+1"
 
         # Switch workspaces with mainMod + [0-9]
