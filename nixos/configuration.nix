@@ -82,6 +82,7 @@
   environment.systemPackages = with pkgs; [
     bottom
     eza
+    fd
     fzf
     hakuneko
     home-manager
