@@ -3,6 +3,10 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, nur, aagl, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -36,6 +40,15 @@
           specialArgs = { inherit system inputs outputs; };
           modules = [
             inputs.isw-nix.nixosModule
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig; # Set up Cachix
+              programs.anime-game-launcher.enable = true;
+              # programs.anime-games-launcher.enable = true;
+              # programs.anime-borb-launcher.enable = true;
+              # programs.honkers-railway-launcher.enable = true;
+              # programs.honkers-launcher.enable = true;
+            }
             ./nixos/configuration.nix
             ./nixos/hardware/msi.nix
             ./nixos/hardware/nvidia.nix
