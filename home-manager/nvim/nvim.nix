@@ -17,7 +17,7 @@
       # Formatter
       nixpkgs-fmt
       python312Packages.black
-
+      stylua
 
       # General dependencies
       wl-clipboard

@@ -17,10 +17,12 @@ require("null-ls").setup({
     null_ls.builtins.formatting.stylua,
     -- Python
     null_ls.builtins.formatting.black,
+    -- QML
+    null_ls.builtins.formatting.qmlformat,
   },
 
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.name == "null-ls" and client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
