@@ -54,17 +54,27 @@
       home-manager-update = "home-manager switch --flake '/home/mdario/NixOS#mdario'";
       fan-on = "sudo ~/Github/isw/result/usr/bin/isw -w 16R3EMS1";
       code = "nix develop";
-      ga = "git add .";
-      gc = "git commit -m";
       gac = "git add . && git commit -m";
     };
 
+    plugins = [
+      {
+        # will source you-should-use.plugin.zsh
+        name = "you-should-use";
+        src = pkgs.fetchFromGitHub {
+          owner = "MichaelAquilina";
+          repo = "zsh-you-should-use";
+          rev = "1.8.0";
+          sha256 = "sha256-fJX748lwVP1+GF/aIl1J3c6XAy/AtYCpEHsP8weUNo0=";
+        };
+      }
+    ];
     oh-my-zsh = {
       enable = true;
       theme = "awesomepanda";
       plugins = [
         "sudo"
-        # "zsh-history-substring-search" 
+        "git"
       ];
     };
   };
