@@ -63,7 +63,10 @@
     extraGroups = [ "wheel" "audio" "video" ];
     packages = with pkgs; [
       aria2
-      cinnamon.nemo
+      (cinnamon.nemo-with-extensions.override {
+        useDefaultExtensions = false;
+        extensions = [ cinnamon.nemo-fileroller ];
+      })
       discord
       filezilla
       firefox
