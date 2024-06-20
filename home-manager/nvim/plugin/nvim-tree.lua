@@ -1,11 +1,11 @@
-local api = require "nvim-tree.api"
+local api = require("nvim-tree.api")
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 
 -- custom mappings
-vim.keymap.set('n', '<C-n>', api.tree.toggle, opts('Toggle file tree'))
+vim.keymap.set("n", "<C-n>", api.tree.toggle, opts("Toggle file tree"))
 
 require("nvim-tree").setup({
   view = {
@@ -18,4 +18,3 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-
