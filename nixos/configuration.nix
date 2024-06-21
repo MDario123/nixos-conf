@@ -70,6 +70,7 @@
       discord
       filezilla
       firefox
+      foliate
       kitty
       krita
       libreoffice
