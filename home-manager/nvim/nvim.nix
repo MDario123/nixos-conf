@@ -83,6 +83,11 @@
         type = "lua";
         config = builtins.readFile ./plugin/gitsigns.lua;
       }
+      {
+        plugin = vim-fugitive;
+        type = "lua";
+        config = builtins.readFile ./plugin/fugitive.lua;
+      }
       # LSP related
       {
         plugin = nvim-lspconfig;
