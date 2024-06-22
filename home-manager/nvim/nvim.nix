@@ -78,6 +78,11 @@
         type = "lua";
         config = builtins.readFile ./plugin/tree-sitter.lua;
       }
+      {
+        plugin = gitsigns-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/gitsigns.lua;
+      }
       # LSP related
       {
         plugin = nvim-lspconfig;
