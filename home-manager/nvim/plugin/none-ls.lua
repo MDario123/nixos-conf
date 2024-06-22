@@ -14,7 +14,9 @@ require("null-ls").setup({
     -- Nix
     null_ls.builtins.formatting.nixpkgs_fmt,
     -- Lua
-    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.stylua.with({
+      extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+    }),
     -- Python
     null_ls.builtins.formatting.black,
     -- QML
