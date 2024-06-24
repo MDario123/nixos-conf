@@ -104,8 +104,10 @@
       luasnip
       friendly-snippets
       cmp_luasnip
-      cmp-nvim-lsp
       cmp-path
+      cmp-buffer
+      cmp-nvim-lsp
+      cmp-nvim-lua
       {
         plugin = nvim-cmp;
         type = "lua";
