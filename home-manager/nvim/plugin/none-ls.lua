@@ -21,6 +21,8 @@ require("null-ls").setup({
     null_ls.builtins.formatting.black,
     -- QML
     null_ls.builtins.formatting.qmlformat,
+    -- Web (HTML, CSS, Javascript, ...)
+    null_ls.builtins.formatting.prettierd,
   },
 
   on_attach = function(client, bufnr)

@@ -18,6 +18,7 @@
       nixpkgs-fmt
       python312Packages.black
       stylua
+      prettierd
 
       # General dependencies
       wl-clipboard
