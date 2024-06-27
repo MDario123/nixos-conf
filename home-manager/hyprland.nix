@@ -118,13 +118,6 @@
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod, M, exit"
 
-        # system management
-        "$mainMod, right, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%; $notifyVolume"
-        "$mainMod, left, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%; $notifyVolume"
-        "$mainMod, up, exec, light -A 5; $notifyBacklight"
-        "$mainMod, down, exec, light -U 5; $notifyBacklight"
-        "$mainMod, R, exec, eww close-all"
-
         # Main applications
         "$mainMod, Q, exec, kitty"
         "$mainMod, E, exec, nemo"
@@ -166,6 +159,20 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
+      ];
+
+      bindel = [
+        # Volume
+        "$mainMod, right, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%; $notifyVolume"
+        "$mainMod, left, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%; $notifyVolume"
+        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%; $notifyVolume"
+        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%; $notifyVolume"
+
+        # Monitor brightness
+        "$mainMod, up, exec, light -A 5; $notifyBacklight"
+        "$mainMod, down, exec, light -U 5; $notifyBacklight"
+        ", XF86MonBrightnessUp , exec, light -A 5; $notifyBacklight"
+        ", XF86MonBrightnessDown , exec, light -U 5; $notifyBacklight"
       ];
 
       bindm = [
