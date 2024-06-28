@@ -13,12 +13,15 @@
       lua-language-server
       nil
       python312Packages.python-lsp-server
+      gopls
 
       # Formatter
       nixpkgs-fmt
       python312Packages.black
       stylua
       prettierd
+      gofumpt
+      gotools
 
       # General dependencies
       wl-clipboard
