@@ -143,8 +143,8 @@ lspconfig.rust_analyzer.setup({
   root_dir = util.root_pattern("Cargo.toml"),
   settings = {
     ["rust-analyzer"] = {
-      cargo = {
-        allFeatures = true,
+      check = {
+        command = "clippy",
       },
     },
   },
