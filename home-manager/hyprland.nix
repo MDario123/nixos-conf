@@ -115,6 +115,7 @@
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 0,"
         "$mainMod SHIFT, F, fullscreen, 1,"
+        "$mainMod, T, togglefloating,"
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod, M, exit"
 
