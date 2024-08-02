@@ -25,7 +25,7 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Havana";
+  time.timeZone = "Europe/Madrid";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
