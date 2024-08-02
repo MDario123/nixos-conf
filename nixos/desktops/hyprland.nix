@@ -45,9 +45,7 @@
     mako
     mpc-cli
     slurp
-    waybar
     ymuse
-    youtube-dl
     gnome.zenity
 
     # Simple and flexbile QtQuick based desktop shell toolkit.
