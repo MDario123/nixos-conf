@@ -49,13 +49,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  security.sudo.extraRules = [
-    {
-      users = [ "mdario" ];
-      commands = [{ command = "/home/mdario/Github/isw/result/usr/bin/isw"; options = [ "NOPASSWD" ]; }];
-    }
-  ];
-
   programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdario = {
@@ -69,9 +62,13 @@
       })
       discord
       filezilla
+      # web browser
       firefox
+      # for reading ebooks
       foliate
+      # terminal emulator
       kitty
+      # for painting
       krita
       libreoffice
       papirus-icon-theme
