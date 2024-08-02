@@ -3,16 +3,14 @@
     "aagl": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
-        "lastModified": 1718631941,
-        "narHash": "sha256-X7Z8phxIjcNugmBzrc3HSgm5YPzsFZsqYUOSgmgXICM=",
+        "lastModified": 1719917903,
+        "narHash": "sha256-UJpEzS99Y/j1QiwpDaB5JLhK85AKBqJ/8jaEiIrEG8Q=",
         "owner": "ezKEa",
         "repo": "aagl-gtk-on-nix",
-        "rev": "72e932c0aa029a5dab7357c0562b69cb4ffd5f01",
+        "rev": "55d7639b1e6aa6ed8ca5ab196b8acd1890d2fc38",
         "type": "github"
       },
       "original": {
@@ -57,9 +55,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1715930644,
@@ -78,9 +74,7 @@
     "isw-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1711667864,
@@ -128,9 +122,7 @@
     },
     "quickshell": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1717400302,
