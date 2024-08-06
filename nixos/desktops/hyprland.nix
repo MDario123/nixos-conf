@@ -35,6 +35,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    alsa-utils
     bc
     eww
     grim
