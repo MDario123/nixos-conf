@@ -42,11 +42,12 @@
     hyprpaper
     libsecret
     libnotify
+    lxappearance
     mako
     mpc-cli
     slurp
     ymuse
-    gnome.zenity
+    zenity
 
     # Simple and flexbile QtQuick based desktop shell toolkit.
     # https://git.outfoxxed.me/outfoxxed/quickshell

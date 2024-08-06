@@ -50,6 +50,9 @@
               # programs.honkers-launcher.enable = true;
             }
             ./nixos/configuration.nix
+            ./nixos/desktops/hyprland.nix
+            ./nixos/programming.nix
+            ./nixos/gaming.nix
             ./nixos/hardware/msi.nix
             ./nixos/hardware/nvidia.nix
           ];

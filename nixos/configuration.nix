@@ -8,10 +8,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./desktops/hyprland.nix
-      ./programming.nix
-      ./gaming.nix
-      ./virtualization.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -46,7 +42,6 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = true;
 
   programs.zsh.enable = true;
@@ -56,9 +51,9 @@
     extraGroups = [ "wheel" "audio" "video" ];
     packages = with pkgs; [
       aria2
-      (cinnamon.nemo-with-extensions.override {
+      (nemo-with-extensions.override {
         useDefaultExtensions = false;
-        extensions = [ cinnamon.nemo-fileroller ];
+        extensions = [ nemo-fileroller ];
       })
       discord
       filezilla
