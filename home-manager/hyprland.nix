@@ -102,11 +102,13 @@
       exec-once = [
         "hyprpaper"
         "eww open-many bar connect"
+        "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav"
       ];
 
       "$mainMod" = "SUPER";
 
-      "$notifyVolume" = "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %' | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && aplay \"$HOME/.local/share/sounds/MDario-theme/tap-notification.wav\"";
+      "$current-volume" = "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %'";
+      "$notifyVolume" = "$current-volume | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && pactl play-sample tap-notification";
 
       "$notifyBacklight" = "light -G | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Backlight\"";
 
