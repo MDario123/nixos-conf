@@ -1,5 +1,44 @@
 { config, pkgs, ... }:
 
+let
+  refact-neovim = pkgs.vimUtils.buildVimPlugin {
+    name = "refact-neovim";
+    # src = /home/mdario/Documents/Projects/refact/refact-neovim;
+    # version = "0.1.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "MDario123";
+      repo = "refact-neovim";
+      rev = "605a861f5a1ab8a17e1ad8e28026c874a461483a";
+      hash = "sha256-slxhP//8x3ToI2x2t6bIh95yHIApDk8NVYqMPaGK+2s=";
+    };
+  };
+  refact-lsp = pkgs.rust.packages.stable.rustPlatform.buildRustPackage {
+    name = "refact-lsp";
+    src = pkgs.fetchFromGitHub {
+      owner = "MDario123";
+      repo = "refact-lsp";
+      rev = "dfd4b60b3fb806addd4d05fb9494e6ca880ae54d";
+      hash = "sha256-rka7x94OobGob1L27h8BqbUKBRmyDpSzWb/Q344z7ik=";
+    };
+
+    cargoHash = "sha256-PtYdCnz1OwhOfROuoKUc5DXD4ghVIVjVQjTFU5r7wjU=";
+
+    nativeBuildInputs = with pkgs; [
+      pkg-config
+      openssl
+      protobuf
+
+      rustc
+      cargo
+      gcc
+    ];
+
+    buildInputs = with pkgs; [
+      pkg-config
+      openssl
+    ];
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -14,6 +53,9 @@
       nil
       python312Packages.python-lsp-server
       gopls
+
+      # AI assistant
+      refact-lsp
 
       # Formatter
       nixpkgs-fmt
@@ -64,7 +106,7 @@
         # https://github.com/nvim-lualine/lualine.nvim
         plugin = lualine-nvim;
         type = "lua";
-        config = "require('lualine').setup()";
+        config = builtins.readFile ./plugin/lualine.lua;
       }
       # Utils
       {
@@ -116,6 +158,13 @@
         plugin = nvim-cmp;
         type = "lua";
         config = builtins.readFile ./plugin/cmp.lua;
+      }
+
+      # refact.ai for completion
+      {
+        plugin = refact-neovim;
+        type = "lua";
+        config = builtins.readFile ./plugin/refact-neovim.lua;
       }
     ];
   };
