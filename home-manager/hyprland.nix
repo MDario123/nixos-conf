@@ -90,6 +90,10 @@
         "float, class:^(Notas)$"
         "size 80% 80%, class:^(Notas)$"
         "center(1), class:^(Notas)$"
+
+        "workspace 1 silent, class:^firefox$"
+        "workspace 9 silent, class:^discord$"
+        "workspace 10 silent, class:^org.telegram.desktop$"
       ];
 
       env = [
@@ -100,9 +104,13 @@
       ];
 
       exec-once = [
-        "hyprpaper"
-        "eww open-many bar connect"
-        "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav"
+        "hyprpaper &"
+        "eww open-many bar connect &"
+        "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
+
+        "firefox &"
+        "discord &"
+        "telegram-desktop &"
       ];
 
       "$mainMod" = "SUPER";
