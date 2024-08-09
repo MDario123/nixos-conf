@@ -10,7 +10,7 @@ else
     address_url = "Refact",
 
     -- Secret API Key, It's used to authenticate your requests.
-    api_key = "CglaQYros6pzg9bE62paqlcd",
+    api_key = api_key,
 
     -- Path to LSP binary if you have it installed.
     --- @type string | nil
