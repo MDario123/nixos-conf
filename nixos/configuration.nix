@@ -69,6 +69,8 @@
       papirus-icon-theme
       telegram-desktop
       wine
+      # add system tray icons, needs to be enabled with Extensions. 
+      gnomeExtensions.appindicator
     ];
   };
   users.defaultUserShell = pkgs.zsh;
