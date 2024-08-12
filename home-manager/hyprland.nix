@@ -97,7 +97,7 @@
       ];
 
       env = [
-        "GTK_THEME,Catppuccin-Mocha-Compact-Mauve-Dark"
+        "GTK_THEME,${config.gtk.theme.name}"
         "HYPRCURSOR_THEME,rose-pine-cursor-hyprcursor"
         "HYPRCURSOR_SIZE,32"
         "XCURSOR_SIZE,32"

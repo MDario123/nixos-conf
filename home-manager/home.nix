@@ -24,7 +24,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
+      name = "catppuccin-mocha-mauve-compact+rimless";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
         size = "compact";
@@ -108,7 +108,7 @@
   };
 
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Mocha-Compact-Mauve-Dark";
+    GTK_THEME = "${config.gtk.theme.name}";
     EDITOR = "nvim";
   };
 
