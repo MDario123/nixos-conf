@@ -10,6 +10,8 @@
     steam-run
     vulkan-tools
 
+    # Game
+    osu-lazer
   ];
 
   programs.gamemode = {
