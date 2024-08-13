@@ -112,6 +112,7 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
     font-awesome
+    noto-fonts
   ];
 
   # List services that you want to enable:
