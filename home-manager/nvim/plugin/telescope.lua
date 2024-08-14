@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<leader>fw", "<Cmd> Telescope live_grep <CR>", { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>ff", "<Cmd> Telescope find_files <CR>", { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>ff", "<Cmd> Telescope find_files <CR>", { desc = "Telescope [f]ind [f]iles" })
+vim.keymap.set("n", "<leader>fh", "<Cmd> Telescope help_tags <CR>", { desc = "Telescope [f]ind [h]elp tags" })
 vim.keymap.set(
   "n",
   "<leader>fz",
