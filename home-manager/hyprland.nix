@@ -141,11 +141,6 @@
         ''$mainMod, V, exec, fd . "$HOME" --type d  | sed  "s/\/home\/$USER/~/" | fuzzel -d -w 50 | xargs -I _ kitty -d _ --hold zsh -c "if fd flake.nix | rg '^flake.nix$'; then nix develop; else nvim; fi"'' # Open nvim in directory selected with fuzzel
         "$mainMod, W, exec, lutris lutris:rungameid/2"
 
-        # Control mpd with headphones
-        ", XF86AudioPlay, exec, mpc toggle"
-        ", XF86AudioPrev, exec, mpc prev"
-        ", XF86AudioNext, exec, mpc next"
-
         # Move focus 
         "$mainMod, H, cyclenext, prev"
         "$mainMod, K, cyclenext, "
@@ -175,6 +170,13 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
+      ];
+
+      bindl = [
+        # Control mpd with headphones
+        ", XF86AudioPlay, exec, mpc toggle"
+        ", XF86AudioPrev, exec, mpc prev"
+        ", XF86AudioNext, exec, mpc next"
       ];
 
       bindel = [
