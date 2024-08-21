@@ -136,7 +136,8 @@
         "$mainMod, F1, exec, firefox"
         "$mainMod, O, exec, fuzzel"
         "$mainMod, S, exec, bemoji -n"
-        "$mainMod, P, exec, grim -g \"$(slurp)\" - > ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png') | wl-copy # Screenshot"
+        "$mainMod, P, exec, grimblast --notify copysave screen ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
+        "$mainMod SHIFT, P, exec, grimblast --notify copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)'" # Notes
         ''$mainMod, V, exec, fd . "$HOME" --type d  | sed  "s/\/home\/$USER/~/" | fuzzel -d -w 50 | xargs -I _ kitty -d _ --hold zsh -c "if fd flake.nix | rg '^flake.nix$'; then nix develop; else nvim; fi"'' # Open nvim in directory selected with fuzzel
         "$mainMod, W, exec, lutris lutris:rungameid/2"

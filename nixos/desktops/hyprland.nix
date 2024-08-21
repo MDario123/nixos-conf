@@ -38,7 +38,6 @@
     alsa-utils
     bc
     eww
-    grim
     hyprlock
     hyprpaper
     libsecret
@@ -46,9 +45,12 @@
     lxappearance
     mako
     mpc-cli
-    slurp
     ymuse
     zenity
+
+    # Helper for screenshots within Hyprland, based on grimshot
+    # https://github.com/hyprwm/contrib/tree/main/grimblast
+    grimblast
 
     # Simple and flexbile QtQuick based desktop shell toolkit.
     # https://git.outfoxxed.me/outfoxxed/quickshell
