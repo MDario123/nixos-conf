@@ -132,7 +132,7 @@
         # Main applications
         "$mainMod, Q, exec, kitty"
         "$mainMod, E, exec, nemo"
-        "$mainMod, L, exec, hyprlock"
+        "$mainMod SHIFT, L, exec, hyprlock"
         "$mainMod, F1, exec, firefox"
         "$mainMod, O, exec, fuzzel"
         "$mainMod, S, exec, bemoji -n"
@@ -144,7 +144,7 @@
 
         # Move focus 
         "$mainMod, H, cyclenext, prev"
-        "$mainMod, K, cyclenext, "
+        "$mainMod, L, cyclenext, "
         "$mainMod SHIFT, S, swapactiveworkspaces, current +1"
         "$mainMod, Tab, workspace, e+1"
 
