@@ -82,7 +82,6 @@
     eza
     fd
     fzf
-    hakuneko
     home-manager
     htop
     lshw
