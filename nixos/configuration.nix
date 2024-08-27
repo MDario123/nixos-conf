@@ -71,6 +71,9 @@
       wine
       # add system tray icons, needs to be enabled with Extensions. 
       gnomeExtensions.appindicator
+
+      # to run .jar files, particularly JDownloader2
+      jre
     ];
   };
   users.defaultUserShell = pkgs.zsh;

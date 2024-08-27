@@ -111,6 +111,7 @@
     GTK_THEME = "${config.gtk.theme.name}";
     EDITOR = "nvim";
   };
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = false;
