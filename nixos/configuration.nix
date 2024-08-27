@@ -74,6 +74,10 @@
 
       # to run .jar files, particularly JDownloader2
       jre
+
+      # ... yes, truly necessary
+      fortune
+      neo-cowsay
     ];
   };
   users.defaultUserShell = pkgs.zsh;
