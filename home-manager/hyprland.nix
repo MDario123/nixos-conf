@@ -101,6 +101,7 @@
         "HYPRCURSOR_THEME,rose-pine-cursor-hyprcursor"
         "HYPRCURSOR_SIZE,32"
         "XCURSOR_SIZE,32"
+        "PATH,$PATH:${config.home.homeDirectory}/.local/bin"
       ];
 
       exec-once = [
