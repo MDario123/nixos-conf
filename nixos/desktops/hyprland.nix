@@ -48,6 +48,9 @@
     ymuse
     zenity
 
+    # PulseAudio GUI
+    pavucontrol
+
     # Helper for screenshots within Hyprland, based on grimshot
     # https://github.com/hyprwm/contrib/tree/main/grimblast
     grimblast
