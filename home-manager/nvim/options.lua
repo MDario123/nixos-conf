@@ -16,7 +16,6 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- Add mappings to change that
 vim.keymap.set("n", "<Leader>n", "<Cmd> set nu! <CR>", { desc = "Toggle line number" })
-vim.keymap.set("n", "<Leader>rn", "<Cmd> set rnu! <CR>", { desc = "Toggle relative number" })
 
 -- Global statusline
 vim.opt.laststatus = 3
