@@ -9,7 +9,10 @@ require("gitsigns").setup({
       vim.keymap.set(mode, l, r, opts)
     end
 
-    -- Actions
+    -- Movement
+    map("n", "<leader>hk", gitsigns.prev_hunk, "Go to previous change")
+    map("n", "<leader>hj", gitsigns.next_hunk, "Go to next change")
+    -- Staging actions
     map("n", "<leader>hs", gitsigns.stage_hunk, "Git [s]tage hunk")
     map("v", "<leader>hs", function()
       gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
