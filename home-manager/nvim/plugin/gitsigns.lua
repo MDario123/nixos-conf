@@ -11,13 +11,15 @@ require("gitsigns").setup({
 
     -- Actions
     map("n", "<leader>hs", gitsigns.stage_hunk, "Git [s]tage hunk")
-    map("n", "<leader>hr", gitsigns.reset_hunk, "Git [r]eset hunk")
     map("v", "<leader>hs", function()
       gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end, "Git [s]tage hunk")
+
+    map("n", "<leader>hr", gitsigns.reset_hunk, "Git [r]eset hunk")
     map("v", "<leader>hr", function()
       gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end, "Git [r]eset hunk")
+
     map("n", "<leader>hu", gitsigns.undo_stage_hunk, "Git [u]ndo stage hunk")
     map("n", "<leader>hp", gitsigns.preview_hunk, "Git [p]review hunk")
 
