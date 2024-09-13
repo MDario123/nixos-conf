@@ -47,6 +47,7 @@
     userEmail = "manuel.dario.oliver@gmail.com";
     extraConfig = {
       credential.helper = "oauth";
+      init.defaultBranch = "main";
     };
   };
 
