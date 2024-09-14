@@ -91,6 +91,12 @@
         "size 80% 80%, class:^(Notas)$"
         "center(1), class:^(Notas)$"
 
+        "float, class:^.blueman-manager-wrapped$"
+        "size 80% 80%, class:^.blueman-manager-wrapped$"
+
+        "float, class:^org.pulseaudio.pavucontrol$"
+        "size 80% 80%, class:^org.pulseaudio.pavucontrol$"
+
         "workspace 1 silent, class:^firefox$"
         "workspace 9 silent, class:^discord$"
         "workspace 10 silent, class:^org.telegram.desktop$"
