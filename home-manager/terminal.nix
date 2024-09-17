@@ -54,9 +54,7 @@
       nixos-update-boot = "sudo nixos-rebuild boot --flake '/home/mdario/NixOS#mdario'";
       nixos-fully-collect-garbage = "sudo nix-collect-garbage -d && nixos-update-boot";
       home-manager-update = "home-manager switch --flake '/home/mdario/NixOS#mdario'";
-      fan-on = "sudo ~/Github/isw/result/usr/bin/isw -w 16R3EMS1";
       code = "nix develop";
-      gac = "git add . && git commit -m";
     };
 
     plugins = [
