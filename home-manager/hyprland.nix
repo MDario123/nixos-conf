@@ -131,8 +131,7 @@
         # hyprland management
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 0,"
-        "$mainMod SHIFT, F, fullscreen, 1,"
-        "$mainMod, T, togglefloating,"
+        "$mainMod SHIFT, F, togglefloating active"
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod, M, exit"
 
