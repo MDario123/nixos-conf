@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -30,6 +30,8 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  services.pipewire.enable = lib.mkForce false;
+
   services.libinput.enable = true;
   # X11 windowing system.
   services.xserver = {
@@ -39,7 +41,7 @@
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
   };
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
   # Enable sound.
   hardware.pulseaudio.enable = true;
@@ -59,6 +61,7 @@
       filezilla
       # web browser
       firefox
+      inputs.zen-browser.packages."${system}".specific
       # for reading ebooks
       foliate
       # terminal emulator
