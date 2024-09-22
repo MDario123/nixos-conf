@@ -39,12 +39,12 @@
         # dim_inactive = true;
         # dim_strength = 0.15;
         #
-        # blur = {
-        #     enabled = true;
-        #     size = 3;
-        #     passes = 3;
-        #     new_optimizations = on;
-        # };
+        blur = {
+          enabled = false;
+          # size = 3;
+          # passes = 3;
+          # new_optimizations = "on";
+        };
         #
         # drop_shadow = true
         # shadow_range = 4
