@@ -30,12 +30,9 @@
         name "PulseAudio" 
         server "127.0.0.1" 
       }
-
-      default_permissions "read,add"
-      local_permissions "read,add,player,control,admin"
     '';
     startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-    network.listenAddress = "any"; # allow non-localhost connections
+    # network.listenAddress = "any"; # allow non-localhost connections
   };
 
   # NFS server
