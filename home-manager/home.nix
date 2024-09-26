@@ -8,6 +8,7 @@
     ./nvim/nvim.nix
     ./terminal.nix
     ./hyprland.nix
+    ./fuzzel.nix
   ];
 
   xdg.dataFile."sounds/MDario-theme/" = {
