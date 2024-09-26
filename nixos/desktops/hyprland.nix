@@ -1,5 +1,32 @@
 { inputs, config, lib, pkgs, system, ... }:
 
+let
+  hydrated-sloth = pkgs.rust.packages.stable.rustPlatform.buildRustPackage {
+    name = "hydrated-sloth";
+    src = pkgs.fetchFromGitHub {
+      owner = "MDario123";
+      repo = "hydrated_sloth";
+      rev = "a81eb7daad156c8ada27548c0a8cf8bcbc2340a8";
+      hash = "sha256-dVWqorYdtLrrSOiXmtUnbmQYYn+UtwoxW4nmzfLa6FQ=";
+    };
+
+    cargoHash = "sha256-HPCi5IGUQFpRy8EPWdlARYXZ9d0w3sxAAkUlFVMrKk0=";
+
+    nativeBuildInputs = with pkgs; [
+      pkg-config
+      gcc
+      rustc
+      cargo
+    ];
+
+    buildInputs = with pkgs; [
+      glib
+      pango
+      gdk-pixbuf
+      gtk3
+    ];
+  };
+in
 {
 
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
@@ -64,6 +91,9 @@
     mpc-cli
     ymuse
     zenity
+
+    # Utility to keep track of sleep and hydration
+    hydrated-sloth
 
     # PulseAudio GUI
     pavucontrol
