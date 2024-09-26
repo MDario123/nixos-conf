@@ -50,10 +50,10 @@
     # historySubstringSearch.enable = true;
 
     shellAliases = {
-      nixos-update = "sudo nixos-rebuild switch --flake '/home/mdario/NixOS#mdario'";
-      nixos-update-boot = "sudo nixos-rebuild boot --flake '/home/mdario/NixOS#mdario'";
+      nixos-update = "sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/NixOS#mdario'";
+      nixos-update-boot = "sudo nixos-rebuild boot --flake '${config.home.homeDirectory}/NixOS#mdario'";
       nixos-fully-collect-garbage = "sudo nix-collect-garbage -d && nixos-update-boot";
-      home-manager-update = "home-manager switch --flake '/home/mdario/NixOS#mdario'";
+      home-manager-update = "home-manager switch --flake '${config.home.homeDirectory}/NixOS#mdario'";
       code = "nix develop";
     };
 
