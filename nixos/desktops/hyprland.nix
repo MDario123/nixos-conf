@@ -34,6 +34,7 @@ in
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true; # enable the graphical frontend
   security.pam.services.gdm.enableGnomeKeyring = true; # load gnome-keyring at startup
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
   environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
 
   programs.hyprland = {
