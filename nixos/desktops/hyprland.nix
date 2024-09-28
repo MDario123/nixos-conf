@@ -6,11 +6,11 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "MDario123";
       repo = "hydrated_sloth";
-      rev = "a81eb7daad156c8ada27548c0a8cf8bcbc2340a8";
-      hash = "sha256-dVWqorYdtLrrSOiXmtUnbmQYYn+UtwoxW4nmzfLa6FQ=";
+      rev = "7cc0620fb2875105c49fb8df9348ec3923e735d5";
+      hash = "sha256-ZWR+dVzVBaMLrWPnDLWzattHmqhzmQ86olIt30EN9ws=";
     };
 
-    cargoHash = "sha256-HPCi5IGUQFpRy8EPWdlARYXZ9d0w3sxAAkUlFVMrKk0=";
+    cargoHash = "sha256-JSiMf1gTLchXiNdp7AxUvHfiHeLbiS8Jlzvg8f+Or5g=";
 
     nativeBuildInputs = with pkgs; [
       pkg-config
