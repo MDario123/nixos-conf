@@ -52,8 +52,8 @@
             ./nixos/desktops/hyprland.nix
             ./nixos/programming.nix
             ./nixos/gaming.nix
-            ./nixos/hardware/msi.nix
-            ./nixos/hardware/nvidia.nix
+            ./nixos/hardware/hp/conf.nix
+            # ./nixos/hardware/msi/conf.nix
           ];
         };
       };
