@@ -13,12 +13,18 @@
         kb_layout = "us, us";
         kb_variant = ", colemak";
         kb_options = "caps:backspace, grp:alt_shift_toggle";
+        numlock_by_default = true;
 
+        repeat_rate = 60;
+        repeat_delay = 300;
+
+        sensitivity = 1;
+        accel_profile = "flat";
         follow_mouse = 1;
+
         touchpad = {
           natural_scroll = true;
         };
-        sensitivity = 0;
       };
 
       general = {
