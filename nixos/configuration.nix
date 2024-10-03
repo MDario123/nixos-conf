@@ -4,9 +4,28 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Don't show text during boot
+  boot.kernelParams = [ "quiet" ];
+  boot.loader.grub = {
+    enable = true;
+
+    copyKernels = true;
+    efiSupport = true;
+    device = "nodev";
+    # useOSProber = true;
+    fsIdentifier = "label";
+
+    theme = "${pkgs.catppuccin-grub.override { flavor = "mocha"; }}/";
+
+    extraEntries = ''
+      menuentry "Reboot" {
+        reboot
+      }
+      menuentry "Poweroff" {
+        halt
+      }
+    '';
+  };
 
   # Support NTFS
   boot.supportedFilesystems = [ "ntfs" ];
