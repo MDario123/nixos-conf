@@ -83,6 +83,7 @@ in
     alsa-utils
     bc
     eww
+    hdrop
     hyprlock
     hyprpaper
     libsecret

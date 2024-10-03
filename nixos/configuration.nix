@@ -61,7 +61,7 @@
       # terminal emulator
       kitty
       # for painting
-      krita
+      pinta
       libreoffice
       papirus-icon-theme
       telegram-desktop

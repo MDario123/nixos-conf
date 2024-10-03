@@ -142,6 +142,7 @@
         "$mainMod, F1, exec, firefox"
         "$mainMod, O, exec, fuzzel"
         "$mainMod, S, exec, bemoji -n"
+        "$mainMod, P, exec, hdrop pinta"
         ", Print, exec, grimblast --notify copysave screen ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
         "SHIFT, Print, exec, grimblast --notify copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)'" # Notes
