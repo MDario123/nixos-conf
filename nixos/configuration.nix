@@ -5,7 +5,8 @@
 
 {
   # Don't show text during boot
-  boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [ "quiet" "splash" ];
+  boot.consoleLogLevel = 3;
   boot.loader.grub = {
     enable = true;
 
@@ -52,7 +53,11 @@
     xkb.layout = "us";
     xkb.options = "caps:backspace";
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+  };
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "sugar-dark";
+    extraPackages = [ pkgs.libsForQt5.qt5.qtgraphicaleffects ];
   };
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
@@ -125,6 +130,20 @@
     wl-clipboard
     w3m
     zoxide
+
+    (sddm-sugar-dark.override {
+      themeConfig = {
+        ForceHideCompletePassword = true;
+
+        ScreenWidth = 1920;
+        ScreenHeight = 1080;
+
+        Background = "${./wallpapers/nixos.png}";
+        MainColor = "white";
+        AccentColor = "#c0a0f0";
+        PartialBlur = "true";
+      };
+    })
   ];
 
   environment.variables = {
