@@ -37,6 +37,7 @@ in
 
       # General dependencies
       wl-clipboard
+      xclip
       ripgrep
     ];
 
