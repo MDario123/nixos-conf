@@ -109,6 +109,7 @@
     bottom
     eza
     fd
+    ffmpeg
     fzf
     home-manager
     htop
