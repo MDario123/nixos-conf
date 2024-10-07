@@ -14,12 +14,6 @@
     osu-lazer
   ];
 
-  programs.gamemode = {
-    enable = true;
-    enableRenice = true;
-  };
-  users.users.mdario.extraGroups = [ "gamemode" ];
-
   hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
