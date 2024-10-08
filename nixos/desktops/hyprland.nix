@@ -28,6 +28,7 @@ let
   };
 in
 {
+  services.displayManager.defaultSession = "hyprland";
 
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
 

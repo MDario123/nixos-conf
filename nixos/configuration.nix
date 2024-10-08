@@ -1,8 +1,11 @@
-# Edit this configuration file to define what should be installed on # your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+{ lib, pkgs, inputs, ... }:
 
-{ config, lib, pkgs, inputs, ... }:
-
+let
+  sddm-glacier = builtins.fetchGit {
+    url = "https://github.com/MDario123/sddm-glacier";
+    rev = "9c9c37645bdaddc398405f1b80b3189e64e58482";
+  };
+in
 {
   # Don't show text during boot
   boot.kernelParams = [ "quiet" "splash" ];
@@ -64,8 +67,13 @@
   };
   services.displayManager.sddm = {
     enable = true;
-    theme = "sugar-dark";
-    extraPackages = [ pkgs.libsForQt5.qt5.qtgraphicaleffects ];
+    theme = "glacier";
+    extraPackages = with pkgs; [
+      libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5.qtmultimedia
+      gst_all_1.gst-plugins-base
+      gst_all_1.gst-plugins-good
+    ];
   };
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
@@ -141,17 +149,9 @@
     w3m
     zoxide
 
-    (sddm-sugar-dark.override {
+    (pkgs.callPackage sddm-glacier {
       themeConfig = {
-        ForceHideCompletePassword = true;
-
-        ScreenWidth = 1920;
-        ScreenHeight = 1080;
-
         Background = "${./wallpapers/nixos.png}";
-        MainColor = "white";
-        AccentColor = "#c0a0f0";
-        PartialBlur = "true";
       };
     })
   ];
