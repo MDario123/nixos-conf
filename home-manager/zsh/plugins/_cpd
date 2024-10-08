@@ -1,0 +1,11 @@
+#compdef cpd
+
+# Complete the first argument with files from ~/Downloads
+if [[ $CURRENT -eq 2 ]]; then
+  _files -W ~/Downloads 
+fi
+
+# Complete the second argument with files here
+if [[ $CURRENT -eq 3 ]]; then
+  _files 
+fi
