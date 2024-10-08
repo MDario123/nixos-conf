@@ -44,7 +44,15 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  services.pipewire.enable = lib.mkForce false;
+  # Enable sound.
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    audio.enable = true;
+  };
 
   services.libinput.enable = true;
   # X11 windowing system.
@@ -61,12 +69,10 @@
   };
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
-  # Enable sound.
-  hardware.pulseaudio.enable = true;
-
   programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdario = {
+    uid = 1000;
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" ];
     packages = with pkgs; [
@@ -121,6 +127,7 @@
     obsidian
     openvpn
     ouch
+    pulseaudioFull
     ripgrep
     socat
     starship
