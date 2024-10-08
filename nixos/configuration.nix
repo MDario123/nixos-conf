@@ -90,6 +90,8 @@
       papirus-icon-theme
       telegram-desktop
       wine
+      # for screen recording
+      obs-studio
       # add system tray icons, needs to be enabled with Extensions. 
       gnomeExtensions.appindicator
 
