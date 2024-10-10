@@ -3,7 +3,7 @@
 let
   sddm-glacier = builtins.fetchGit {
     url = "https://github.com/MDario123/sddm-glacier";
-    rev = "9c9c37645bdaddc398405f1b80b3189e64e58482";
+    rev = "80931ceea6d9e7934ebc758995c7d362109560c4";
   };
 in
 {
