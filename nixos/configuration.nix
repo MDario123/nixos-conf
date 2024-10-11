@@ -1,12 +1,10 @@
 { lib, pkgs, inputs, ... }:
 
-let
-  sddm-glacier = builtins.fetchGit {
-    url = "https://github.com/MDario123/sddm-glacier";
-    rev = "80931ceea6d9e7934ebc758995c7d362109560c4";
-  };
-in
 {
+  imports = [
+    ./sddm.nix
+  ];
+
   # Don't show text during boot
   boot.kernelParams = [ "quiet" "splash" ];
   boot.consoleLogLevel = 3;
@@ -64,16 +62,6 @@ in
     xkb.layout = "us";
     xkb.options = "caps:backspace";
     desktopManager.gnome.enable = true;
-  };
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "glacier";
-    extraPackages = with pkgs; [
-      libsForQt5.qt5.qtgraphicaleffects
-      libsForQt5.qt5.qtmultimedia
-      gst_all_1.gst-plugins-base
-      gst_all_1.gst-plugins-good
-    ];
   };
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
@@ -148,12 +136,6 @@ in
     wl-clipboard
     w3m
     zoxide
-
-    (pkgs.callPackage sddm-glacier {
-      themeConfig = {
-        Background = "${./wallpapers/nixos.png}";
-      };
-    })
   ];
 
   environment.variables = {
