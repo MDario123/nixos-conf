@@ -1,146 +1,59 @@
-{ lib, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    ./sddm.nix
+    ./boot.nix
+    ./user.nix
   ];
 
-  # Don't show text during boot
-  boot.kernelParams = [ "quiet" "splash" ];
-  boot.consoleLogLevel = 3;
-  boot.loader.grub = {
-    enable = true;
-
-    copyKernels = true;
-    efiSupport = true;
-    device = "nodev";
-    # useOSProber = true;
-    fsIdentifier = "label";
-
-    theme = "${pkgs.catppuccin-grub.override { flavor = "mocha"; }}/";
-
-    extraEntries = ''
-      menuentry "Reboot" {
-        reboot
-      }
-      menuentry "Poweroff" {
-        halt
-      }
-    '';
-  };
-
-  # Support NTFS
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  networking.hostName = "MDario"; # Define your hostname.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
+  # Basic config
+  # Define your hostname.
+  networking.hostName = "MDario";
+  # Set your time zone
   time.timeZone = "Europe/Madrid";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkb.options in tty.
+    useXkbConfig = true;
   };
 
-  # Enable sound.
-  security.rtkit.enable = true;
-  services.pipewire = {
+  # Networking
+  networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
+
+  # NFS server
+  services.static-web-server = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    audio.enable = true;
+    listen = "[::]:80";
+    root = "/export";
+    configuration = {
+      general = {
+        directory-listing = true;
+      };
+    };
   };
-
-  services.libinput.enable = true;
-  # X11 windowing system.
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.options = "caps:backspace";
-    desktopManager.gnome.enable = true;
-  };
-  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
-
-  programs.zsh.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mdario = {
-    uid = 1000;
-    isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" ];
-    packages = with pkgs; [
-      aria2
-      (nemo-with-extensions.override {
-        useDefaultExtensions = false;
-        extensions = [ nemo-fileroller ];
-      })
-      discord
-      filezilla
-      # web browser
-      firefox
-      inputs.zen-browser.packages."${system}".specific
-      # for reading ebooks
-      foliate
-      # terminal emulator
-      kitty
-      # for painting
-      pinta
-      libreoffice
-      papirus-icon-theme
-      telegram-desktop
-      wine
-      # for screen recording
-      obs-studio
-      # add system tray icons, needs to be enabled with Extensions. 
-      gnomeExtensions.appindicator
-
-      # to run .jar files, particularly JDownloader2
-      jre
-
-      # ... yes, truly necessary
-      fortune
-      neo-cowsay
-    ];
-  };
-  users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     bottom
-    eza
     fd
-    ffmpeg
     fzf
     home-manager
-    htop
-    lshw
     jq
     neovim
-    obsidian
-    openvpn
     ouch
     pulseaudioFull
     ripgrep
-    socat
     starship
     tldr
-    tree
     unrar
     unzip
     vim
-    wget
     wl-clipboard
-    w3m
     zoxide
   ];
-
-  environment.variables = {
-    SHELL = "$(which zsh)";
-  };
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
@@ -148,18 +61,9 @@
     noto-fonts
   ];
 
-  # List services that you want to enable:
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
   # Do NOT change this value 
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
-
 }

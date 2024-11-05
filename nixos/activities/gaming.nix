@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.xpadneo.enable = true;
+  # hardware.xpadneo.enable = true;
   environment.systemPackages = with pkgs; [
     lutris
     mangohud
@@ -14,7 +14,7 @@
     osu-lazer
   ];
 
-  hardware.steam-hardware.enable = true;
+  # hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
     # extest.enable = true;

@@ -28,73 +28,27 @@ let
   };
 in
 {
+  imports = [
+    ./common.nix
+  ];
+
   services.displayManager.defaultSession = "hyprland";
 
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
-
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true; # enable the graphical frontend
-  security.pam.services.gdm.enableGnomeKeyring = true; # load gnome-keyring at startup
-  security.pam.services.gdm-password.enableGnomeKeyring = true;
-  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
 
   programs.hyprland = {
     enable = true;
   };
 
-  # Screen backlight
-  programs.light.enable = true;
-  # Bluetooth (GUI)
-  services.blueman.enable = true;
-
-  # mpd (music player)
-  systemd.services.mpd.environment = {
-    # User-id must match mpd user. MPD will look inside this directory for the PipeWire socket.
-    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users."mdario".uid}";
-  };
-  services.mpd = {
-    enable = true;
-    user = "mdario";
-    musicDirectory = "${config.users.users."mdario".home}/Music";
-    extraConfig = ''
-      audio_output {
-        type  "pipewire"
-        name  "PipeWire Sound Server"
-      }
-    '';
-    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-    # network.listenAddress = "any"; # allow non-localhost connections
-  };
-
-  # NFS server
-  fileSystems."/export/Music" = {
-    device = "/home/mdario/Music";
-    options = [ "bind" ];
-  };
-  services.static-web-server = {
-    enable = true;
-    listen = "[::]:80";
-    root = "/export";
-    configuration = {
-      general = {
-        directory-listing = true;
-      };
-    };
-  };
-
   environment.systemPackages = with pkgs; [
-    alsa-utils
-    bc
+    # alsa-utils
     eww
     hdrop
+    hypridle
     hyprlock
     hyprpaper
-    libsecret
     libnotify
-    lxappearance
     mako
-    mpc-cli
-    ymuse
     zenity
 
     # Utility to keep track of sleep and hydration
@@ -106,10 +60,6 @@ in
     # Helper for screenshots within Hyprland, based on grimshot
     # https://github.com/hyprwm/contrib/tree/main/grimblast
     grimblast
-
-    # Simple and flexbile QtQuick based desktop shell toolkit.
-    # https://git.outfoxxed.me/outfoxxed/quickshell
-    inputs.quickshell.packages.${system}.default
 
     # Application picker
     # https://codeberg.org/dnkl/fuzzel

@@ -5,9 +5,7 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-      ./nvidia.nix
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" ];
@@ -16,27 +14,23 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/88dc45fa-a8ba-454e-a987-8661f7e913d3";
+    { device = "/dev/disk/by-uuid/686fa0f0-c9eb-4886-a78c-e6a3852bfaee";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/2B31-733C";
+    { device = "/dev/disk/by-uuid/2B31-733C";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/21dd713b-64b9-4562-b962-1558976a8c66";
+    { device = "/dev/disk/by-uuid/21dd713b-64b9-4562-b962-1558976a8c66";
       fsType = "ext4";
     };
 
   fileSystems."/home/games" =
-    {
-      device = "/dev/disk/by-uuid/b3bec637-df47-47db-938a-0a9af67e6d82";
+    { device = "/dev/disk/by-uuid/b3bec637-df47-47db-938a-0a9af67e6d82";
       fsType = "ext4";
     };
 
@@ -47,7 +41,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 

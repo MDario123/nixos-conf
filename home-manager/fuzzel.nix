@@ -8,7 +8,8 @@
         font = "FantasqueSansM Nerd Font Mono:size=12";
         dpi-aware = "auto";
         icon-theme = "hicolor";
-        icons-enable = "yes";
+        icons-enabled = "yes";
+        show-actions = "yes";
         anchor = "center";
         lines = 10;
         width = 30;

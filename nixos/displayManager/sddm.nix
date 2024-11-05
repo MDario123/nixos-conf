@@ -9,6 +9,7 @@ in
 {
   services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
     theme = "glacier";
     extraPackages = with pkgs; [
       libsForQt5.qt5.qtgraphicaleffects
@@ -17,21 +18,13 @@ in
     package = pkgs.libsForQt5.sddm;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     (pkgs.callPackage sddm-glacier {
       themeConfig = {
-        Background = "${./wallpapers/nixos.png}";
-        AnimatedBackground = "${./wallpapers/video.mp4}";
+        Background = "${../../Assets/wallpapers/nixos.png}";
+        AnimatedBackground = "${../../Assets/wallpapers/video.mp4}";
         AnimationSpeedMultiplier = (144 / 60);
       };
     })
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good
-    gst_all_1.gst-libav
   ];
-
-  environment.variables = {
-    GST_PLUGIN_SYSTEM_PATH = "${pkgs.gst_all_1.gstreamer.out}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-good}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-libav}/lib/gstreamer-1.0";
-  };
 }

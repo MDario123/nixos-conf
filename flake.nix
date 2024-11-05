@@ -38,22 +38,19 @@
         mdario = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs outputs; };
           modules = [
-            inputs.isw-nix.nixosModule
+            # inputs.isw-nix.nixosModule
             {
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig; # Set up Cachix
               programs.anime-game-launcher.enable = true;
-              # programs.anime-games-launcher.enable = true;
-              # programs.anime-borb-launcher.enable = true;
-              # programs.honkers-railway-launcher.enable = true;
-              # programs.honkers-launcher.enable = true;
             }
+            ./nixos/hardware/hp
             ./nixos/configuration.nix
+            ./nixos/displayManager/sddm.nix
             ./nixos/desktops/hyprland.nix
-            ./nixos/programming.nix
-            ./nixos/gaming.nix
-            ./nixos/hardware/hp/conf.nix
-            # ./nixos/hardware/msi/conf.nix
+            ./nixos/activities/programming.nix
+            ./nixos/activities/gaming.nix
+            ./nixos/activities/music.nix
           ];
         };
       };

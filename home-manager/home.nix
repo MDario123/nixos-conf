@@ -12,7 +12,7 @@
   ];
 
   xdg.dataFile."sounds/MDario-theme/" = {
-    source = ./resources/sounds/MDario-theme;
+    source = ../Assets/sounds/My-theme;
   };
 
   home.pointerCursor = {
