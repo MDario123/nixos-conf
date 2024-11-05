@@ -65,5 +65,15 @@
           ./home-manager/graphical
         ];
       };
+
+      homeConfigurations."server" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          ./home-manager/home.nix
+          ./home-manager/terminal
+        ];
+      };
     };
 }
