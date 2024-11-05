@@ -59,7 +59,11 @@
         inherit pkgs;
 
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home-manager/home.nix ];
+        modules = [
+          ./home-manager/home.nix
+          ./home-manager/terminal
+          ./home-manager/graphical
+        ];
       };
     };
 }

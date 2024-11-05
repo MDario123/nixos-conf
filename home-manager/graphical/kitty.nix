@@ -1,9 +1,5 @@
-{ config, lib, pkgs, ... }:
-
+{ pkgs, ... }:
 {
-  imports = [
-    ./zsh/zsh.nix
-  ];
   programs.kitty = {
     enable = true;
     font = {
@@ -24,29 +20,5 @@
       map f2 close_window
       enabled_layouts tall,fat
     '';
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      format = "$character";
-      right_format = "$all";
-      character = {
-        success_symbol = "[=>>](bold green)";
-        error_symbol = "[=>>](bold red)";
-      };
-      add_newline = false;
-      git_branch = {
-        disabled = true;
-      };
-      git_status = {
-        disabled = false;
-      };
-    };
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
   };
 }
