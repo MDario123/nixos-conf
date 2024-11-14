@@ -179,3 +179,8 @@ lspconfig.pylsp.setup({
   -- on_attach = on_attach,
   capabilities = M.capabilities,
 })
+
+lspconfig.intelephense.setup({
+  -- on_attach = on_attach,
+  capabilities = M.capabilities,
+})

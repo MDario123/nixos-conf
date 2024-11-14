@@ -26,6 +26,7 @@ in
       nil
       python312Packages.python-lsp-server
       gopls
+      intelephense
 
       # Formatter
       nixpkgs-fmt
