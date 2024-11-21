@@ -13,6 +13,7 @@
       })
       discord
       filezilla
+      ffmpeg
       # web browser
       firefox
       inputs.zen-browser.packages."${system}".specific
