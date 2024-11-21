@@ -42,6 +42,7 @@ in
 
   environment.systemPackages = with pkgs; [
     # alsa-utils
+    decibels
     eww
     hdrop
     hypridle
