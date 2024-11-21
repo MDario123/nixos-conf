@@ -43,9 +43,5 @@
   # Shell
   programs.zsh.enable = true;
 
-  environment.variables = {
-    SHELL = "$(which zsh)";
-  };
-
   users.defaultUserShell = pkgs.zsh;
 }

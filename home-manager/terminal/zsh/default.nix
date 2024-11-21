@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    SHELL = "$(which zsh)";
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
