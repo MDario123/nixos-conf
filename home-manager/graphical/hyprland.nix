@@ -124,7 +124,8 @@
         "float, class:^org.pulseaudio.pavucontrol$"
         "size 80% 80%, class:^org.pulseaudio.pavucontrol$"
 
-        "workspace 1 silent, class:^firefox$"
+        "workspace 1 silent, class:^zen-alpha$"
+        "workspace 8 silent, class:^whatsie$"
         "workspace 9 silent, class:^discord$"
         "workspace 10 silent, class:^org.telegram.desktop$"
       ];
@@ -142,9 +143,10 @@
         "eww open-many bar connect &"
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
-        "firefox &"
-        "discord &"
+        "zen &"
         "telegram-desktop &"
+        "discord &"
+        "whatsie &"
       ];
 
       "$mainMod" = "SUPER";
