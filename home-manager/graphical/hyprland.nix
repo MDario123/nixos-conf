@@ -177,6 +177,8 @@
         "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)'" # Notes
         ''$mainMod, V, exec, fd . "$HOME" --type d  | sed  "s/\/home\/$USER/~/" | fuzzel -d -w 50 | xargs -I _ kitty -d _ --hold zsh -c "if fd flake.nix | rg '^flake.nix$'; then nix develop; else nvim; fi"'' # Open nvim in directory selected with fuzzel
         "$mainMod, W, exec, lutris lutris:rungameid/2"
+        # Download video in the clipboard
+        "$mainMod, D, exec, wl-paste | xargs yt-dlp"
 
         # Move focus 
         "$mainMod, H, cyclenext, prev"
