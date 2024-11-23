@@ -20,7 +20,7 @@ require("null-ls").setup({
     -- Python
     null_ls.builtins.formatting.black,
     -- PHP
-    null_ls.builtins.formatting.pretty_php,
+    null_ls.builtins.formatting.pint,
     -- QML
     null_ls.builtins.formatting.qmlformat,
     -- Web (HTML, CSS, Javascript, ...)
