@@ -9,6 +9,7 @@
     # haskell compiler (here for the interactive version "ghci")
     ghc
     git-credential-oauth
+    vscode
 
     ollama-cuda
   ];

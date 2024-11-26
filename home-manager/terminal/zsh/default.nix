@@ -16,7 +16,7 @@
       nixos-update-boot = "sudo nixos-rebuild boot --flake '${config.home.homeDirectory}/NixOS#mdario'";
       nixos-fully-collect-garbage = "sudo nix-collect-garbage -d && nixos-update-boot";
       home-manager-update = "home-manager switch --flake '${config.home.homeDirectory}/NixOS#mdario'";
-      code = "nix develop";
+      nd = "nix develop";
     };
 
     plugins = [
