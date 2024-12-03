@@ -46,8 +46,9 @@
             }
             ./nixos/hardware/hp
             ./nixos/configuration.nix
-            ./nixos/displayManager/sddm.nix
+            ./nixos/displayManager/gdm.nix
             ./nixos/desktops/hyprland.nix
+            ./nixos/desktops/gnome.nix
             ./nixos/activities/programming.nix
             ./nixos/activities/gaming.nix
             ./nixos/activities/music.nix
