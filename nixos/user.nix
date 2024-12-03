@@ -26,7 +26,6 @@
       libreoffice
       papirus-icon-theme
       telegram-desktop
-      whatsie
       wine
       # for screen recording
       obs-studio

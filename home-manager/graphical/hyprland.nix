@@ -125,7 +125,6 @@
         "size 80% 80%, class:^org.pulseaudio.pavucontrol$"
 
         "workspace 1 silent, class:^zen-alpha$"
-        "workspace 8 silent, class:^com.ktechpit.whatsie$"
         "workspace 9 silent, class:^discord$"
         "workspace 10 silent, class:^org.telegram.desktop$"
       ];
@@ -146,7 +145,6 @@
         "zen &"
         "telegram-desktop &"
         "discord &"
-        "whatsie &"
       ];
 
       "$mainMod" = "SUPER";
