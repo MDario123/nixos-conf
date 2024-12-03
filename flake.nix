@@ -50,6 +50,7 @@
             ./nixos/desktops/hyprland.nix
             ./nixos/desktops/gnome.nix
             ./nixos/activities/programming.nix
+            ./nixos/activities/docker.nix
             ./nixos/activities/gaming.nix
             ./nixos/activities/music.nix
           ];
