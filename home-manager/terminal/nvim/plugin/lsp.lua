@@ -184,3 +184,9 @@ lspconfig.intelephense.setup({
   -- on_attach = on_attach,
   capabilities = M.capabilities,
 })
+
+lspconfig.ts_ls.setup({
+  -- on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+})

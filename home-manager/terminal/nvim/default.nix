@@ -27,6 +27,7 @@ in
       python312Packages.python-lsp-server
       gopls
       intelephense
+      typescript-language-server
 
       # Formatter
       nixpkgs-fmt
