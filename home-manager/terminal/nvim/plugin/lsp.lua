@@ -190,3 +190,7 @@ lspconfig.ts_ls.setup({
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
 })
+
+lspconfig.cssls.setup({
+  capabilities = M.capabilities,
+})

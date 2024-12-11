@@ -28,6 +28,7 @@ in
       gopls
       intelephense
       typescript-language-server
+      vscode-langservers-extracted
 
       # Formatter
       nixpkgs-fmt
