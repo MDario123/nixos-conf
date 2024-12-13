@@ -181,6 +181,8 @@
         # Move focus 
         "$mainMod, H, cyclenext, prev"
         "$mainMod, L, cyclenext, "
+        "$mainMod CTRL, H, swapnext, prev"
+        "$mainMod CTRL, L, swapnext, "
         "$mainMod SHIFT, S, swapactiveworkspaces, current +1"
         "$mainMod, Tab, workspace, e+1"
 
