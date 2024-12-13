@@ -17,6 +17,7 @@
       # web browser
       firefox
       inputs.zen-browser.packages."${system}".specific
+      chromium
       # for reading ebooks
       foliate
       # terminal emulator
