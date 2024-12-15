@@ -46,6 +46,7 @@
     ouch
     pulseaudioFull
     ripgrep
+    socat
     starship
     tldr
     unrar
