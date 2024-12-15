@@ -5,8 +5,8 @@
   (box :space-evenly false :valign "center" 
   (revealer :transition "slideleft" :reveal power :duration "300ms" 
   (box :class "revealer" :valign "center" :halign "end"
-    (button :class "lock_button" :onclick "hyprctl dispatch exec hyprlock" "")
-    (button :class "logout_button" :onclick "hyprctl dispatch exit" "")
-    (button :class "reboot_button" :onclick "reboot" "")))
-    (button :class "shutdown_button" :onclick "poweroff" "")
+    (button :class "basic-button border colored lock_button" :onclick "hyprctl dispatch exec hyprlock" "")
+    (button :class "basic-button border colored logout_button" :onclick "hyprctl dispatch exit" "")
+    (button :class "basic-button border colored reboot_button" :onclick "reboot" "")))
+    (button :class "basic-button border colored shutdown_button" :onclick "poweroff" "")
   )))

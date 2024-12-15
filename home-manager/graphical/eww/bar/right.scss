@@ -1,8 +1,5 @@
 .shutdown_button {
-  background: $background;
   padding: 6px 11px 6px 7px;
-  border: 2px solid;
-  border-radius: 6px;
 }
 
 .revealer {
@@ -13,31 +10,11 @@
 .reboot_button,
 .logout_button {
   margin: 0px 5px 0px 0px;
-  background: $background;
   padding: 6px 11px 6px 7px;
-  border: 2px solid;
-  border-radius: 6px;
-}
-
-.shutdown_button:hover,
-.lock_button:hover,
-.reboot_button:hover,
-.logout_button:hover {
-  background: $foreground;
-}
-
-.shutdown_button:active,
-.lock_button:active,
-.reboot_button:active,
-.logout_button:active {
-  background: $mauve;
 }
 
 .volume_box {
-  background: $background;
   padding: 4px 13px 3px 8px;
-  border: 2px solid;
-  border-radius: 6px;
 }
 
 .volume {
@@ -57,18 +34,12 @@
 }
 
 .battery {
-  background: $background;
   padding: 4px 8px 3px 8px;
-  border: 2px solid;
-  border-radius: 6px;
   font-size: 20px;
 }
 
 .battery_detailed {
-  background: $background;
   padding: 5px 5px 5px 5px;
-  border: 2px solid;
-  border-radius: 6px;
 
   circular-progress {
     background: $foreground;
@@ -80,25 +51,8 @@
 
     label {
       font-size: 26px;
-      padding: 0px 0px 0px 0px;
     }
   }
-}
-
-.network {
-  background: $background;
-  padding: 5px 11px 5px 5px;
-  border: 2px solid;
-  border-radius: 6px;
-  min-height: 5px;
-}
-
-.network:hover {
-  background: $foreground;
-}
-
-.network:active {
-  background: $mauve;
 }
 
 menu {

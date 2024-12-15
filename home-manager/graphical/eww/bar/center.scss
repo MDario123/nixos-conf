@@ -1,33 +1,13 @@
 .clock {
-  font-family: "FantasqueSansM Nerd Font Mono";
-  font-size: 18px;
-  font-weight: 900;
-  background: $background;
-  border: 2px solid;
-  border-radius: 6px;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
 }
 
 .pomodoro-timer {
-  background: $background;
-  border: 2px solid;
-  border-radius: 6px;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
   margin: 0px 0px 0px 5px;
 }
 
 .mpd_controller {
-  background: $background;
-  border: 2px solid;
-  border-radius: 6px;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
   margin: 0px 5px 0px 0px;
-}
-
-.pomodoro-timer:hover, .mpd_controller:hover {
-  background: $foreground;
-}
-
-.pomodoro-timer:active, .mpd_controller:active {
-  background: $mauve;
 }

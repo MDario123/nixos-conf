@@ -17,20 +17,3 @@
 (left)
 (center)
 (right)))
-
-(include "./connect/wifi.yuck")
-
-(defwindow connect 
-  :monitor 0
-  :stacking "fg"
-  :windowtype "toolbar"
-  :exclusive false
-  :focusable false
-  :geometry (geometry
-    :x "4%"
-    :width "5%"
-    :anchor "top right"
-  )
-
-  (wifi)
-)

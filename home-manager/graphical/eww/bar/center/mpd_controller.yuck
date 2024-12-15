@@ -2,7 +2,7 @@
 
 (defwidget mpd_controller []
   (button 
-    :class "mpd_controller" 
+    :class "basic-button border colored mpd_controller" 
     :onclick "mpc toggle" 
     (label :text {
       mpd_status == "[paused]" ? ""

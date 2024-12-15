@@ -4,7 +4,7 @@
 (defwidget workspaces []
   (box
       :hexpand true
-      :class "workspaces"
+      :class "big-font border colored workspaces"
       :space-evenly true
     (label :text "${workspaces}${current-workspace}" :visible false)
     (

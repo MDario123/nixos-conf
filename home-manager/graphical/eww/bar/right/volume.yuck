@@ -3,7 +3,7 @@
 
 (defwidget volume []
   (eventbox :onhover "eww update volume=true" :onhoverlost "eww update volume=false" :halign "end"
-  (box :class "volume_box" :space-evenly false :halign "end" 
+  (box :class "border colored volume_box" :space-evenly false :halign "end" 
   ""
   (revealer :transition "slideright" :reveal volume :duration "300ms" 
   (scale 

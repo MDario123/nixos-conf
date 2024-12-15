@@ -6,6 +6,6 @@
     :reveal {window != ""}
     :duration "250ms" 
   (box 
-    :class "window_title"
+    :class "big-font border colored window_title"
   (label :text {window} :limit-width 60)
 )))

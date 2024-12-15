@@ -1,7 +1,0 @@
-(defwidget network []
-  (button 
-    :halign "end"
-    :class "network" 
-    :onclick 'eww update reveal_connections=${!reveal_connections}'
-    "󰤯"
-))

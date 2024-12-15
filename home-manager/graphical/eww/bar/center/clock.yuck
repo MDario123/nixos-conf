@@ -1,7 +1,7 @@
 (defpoll time :interval "0.5s" `date '+%a %d - %H:%M:%S'`)
 
 (defwidget clock []
-  (box :class "clock" 
+  (box :class "border big-font colored clock" 
   (label :text time)
   )
 )

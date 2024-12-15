@@ -5,25 +5,36 @@
 @import "./colors.scss";
 
 * {
-  color: $mauve;
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
 }
 
-.basic_button {
+.basic-button {
   background: $background;
-  padding: 0px 5px;
-  border: 2px solid;
+
+  &:hover {
+    background: $foreground;
+  }
+
+  &:active {
+    background: $mauve;
+  }
+}
+
+.big-font {
+  font-family: "FantasqueSansM Nerd Font Mono";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.border {
+  background: $background;
+  border: 2px solid $mauve;
   border-radius: 6px;
 }
 
-.basic_button:hover {
-  background: $foreground;
-}
-
-.basic_button:active {
-  background: $mauve;
+.colored {
+  color: $mauve;
 }
 
 @import "./bar/bar.scss";
-@import "./connect/connect.scss";

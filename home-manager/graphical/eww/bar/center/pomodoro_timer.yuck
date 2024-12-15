@@ -2,7 +2,7 @@
 
 (defwidget pomodoro-timer []
   (button 
-    :class "pomodoro-timer" 
+    :class "basic-button border pomodoro-timer" 
     :onclick "./scripts/pomodoro toggle" 
     :onrightclick "./scripts/pomodoro restart"
     (circular-progress
