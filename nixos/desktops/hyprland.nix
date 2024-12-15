@@ -50,6 +50,7 @@ in
     hyprpaper
     libnotify
     mako
+    playerctl
     zenity
 
     # Utility to keep track of sleep and hydration

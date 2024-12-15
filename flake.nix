@@ -63,6 +63,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           ./home-manager/home.nix
+          ./home-manager/mpd.nix
           ./home-manager/terminal
           ./home-manager/graphical
         ];
