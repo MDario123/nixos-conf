@@ -1,0 +1,17 @@
+(deflisten current-workspace :initial "1" "./scripts/get-active-workspace")
+(deflisten workspaces :initial "[]" "./scripts/get-workspaces")
+
+(defwidget workspaces []
+  (box
+      :hexpand true
+      :class "workspaces"
+      :space-evenly true
+    (label :text "${workspaces}${current-workspace}" :visible false)
+    (
+      for workspace in workspaces
+        (button
+          :class "workspace_button ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == current-workspace ? "current" : ""}"
+          :onclick "hyprctl --instance $(echo $HYPRLAND_INSTANCE_SIGNATURE) dispatch workspace ${workspace.id}"
+          {workspace.id}
+        )
+)))

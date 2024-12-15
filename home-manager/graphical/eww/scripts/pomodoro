@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+lf=/tmp/pomodoro-timer
+worktime=1500
+shortresttime=300
+longresttime=900
+
+fatal() {
+  echo "FATAL ERROR: $@"
+  exit 1
+}
+
+notify() {
+  notify-send -t 2000 "$1" &
+  aplay ./resources/sounds/tap.wav &
+}
+# trap "rm -f $lf" EXIT
+
+touch $lf
+
+statuscode=$(cut -d ' ' -f1 $lf)
+lastused=$(cut -d ' ' -f2 $lf)
+currenttime=$(date +%s)
+
+case $1 in 
+
+get)
+  case $statuscode in 
+    0)
+      echo 'not-started 100'
+      ;;
+    1|3|5|7)
+      fraction=$(echo "scale=3; ($currenttime-$lastused)*100/$worktime" | bc)
+      echo "work $fraction"
+      # Auto start rest if time finished
+      if (( $lastused + $worktime < $currenttime )); then
+        notify "Auto-starting rest"
+        let statuscode++
+        echo "$statuscode $currenttime" > $lf
+      fi
+      ;;
+    2|4|6)
+      fraction=$(echo "scale=3; ($currenttime-$lastused)*100/$shortresttime" | bc)
+      echo "short-rest $fraction"
+      if (( $fraction == 100 )); then
+        notify "Rest finished"
+      fi
+      ;;
+    8)
+      fraction=$(echo "scale=3; ($currenttime-$lastused)*100/$longresttime" | bc)
+      echo "long-rest $fraction"
+      if (( $fraction == 100 )); then
+        notify "Rest finished"
+        echo "0 0" > $lf
+      fi
+      ;;
+    *)
+      # If the information in the lock file is incoherent (or empty) insert defaults
+      echo '0 0' > $lf
+      # Output as if defaults were found
+      echo 'not-started 100'
+      ;;
+  esac
+ ;;
+
+toggle)
+  case $statuscode in 
+    0)
+      notify "Starting work"
+      let statuscode++
+      echo "$statuscode $currenttime" > $lf
+      ;;
+    2|4|6)
+      if (( $lastused + $shortresttime < $currenttime )); then
+        notify "Starting work"
+        let statuscode++
+        echo "$statuscode $currenttime" > $lf
+      fi
+      ;;
+    *)
+      fatal "Use at least one get first"
+      ;;
+  esac
+  ;;
+
+restart)
+  notify "Restarting pomodoro-timer"
+  echo "0 0" > $lf
+  ;;
+esac
+
+exit 0

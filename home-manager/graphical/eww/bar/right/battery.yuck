@@ -1,0 +1,33 @@
+(defwidget battery [status charge]
+  (tooltip
+  (box :class "battery_detailed"
+  (circular-progress 
+        :css {
+          charge <= 20 ? "* {color: #F8A;}"
+        : charge <= 70 ? "* {color: #DD8;}"
+        : "* {color: #AEA;}"
+        }
+      :width 50
+      :height 50
+      :value charge 
+      :start-at 75
+      :thickness 5
+      (label :text 
+          {(status == 'Charging' ? "󰂄" 
+            : (charge <= 20 ? "󰁻"
+            : charge <= 40 ? "󰁽"
+            : charge <= 60 ? "󰁿"
+            : charge <= 80 ? "󰂁"
+            : "󰁹") ) }
+      )
+  ))
+  (box :class "battery"
+  (label :text 
+      {(status == 'Charging' ? "󰂄" 
+        : (charge <= 20 ? "󰁻"
+        : charge <= 40 ? "󰁽"
+        : charge <= 60 ? "󰁿"
+        : charge <= 80 ? "󰂁"
+        : "󰁹") ) }
+  ))
+))

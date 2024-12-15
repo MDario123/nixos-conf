@@ -1,0 +1,10 @@
+.bar{
+  padding: 5px;
+  background: unset;
+  // filter: blur(5px);
+  // backdrop-filter: blur(5px);
+}
+
+@import "./right.scss";
+@import "./center.scss";
+@import "./left.scss";

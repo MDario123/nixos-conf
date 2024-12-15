@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+available_wifi=$(nmcli -f SSID,SIGNAL,SECURITY,IN-USE dev wifi list --rescan no)
+available_wifi_as_json=$(
+  echo "$available_wifi" | 
+    awk 'NR>1{printf "{\"ssid\":\"%s\",\"signal\":%s,\"security\":\"%s\",\
+    \"in_use\":\"%s\",\
+    \"command\":\"zenity --password --title \\\"Admin rights\\\" | sudo -S nmcli dev wifi connect \\\"%s\\\"\"\
+                  }\n"\
+      , $1, $2, $3, $4, $1}'
+)
+echo "$available_wifi_as_json" | jq -s .
+# \"command\":\"zenity --password --title \\\"Admin rights\\\" | sudo -S nmcli dev wifi connect \\\"%s\\\"\
+

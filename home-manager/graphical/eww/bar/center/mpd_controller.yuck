@@ -1,0 +1,12 @@
+(defpoll mpd_status :interval "0.2s" `mpc status | awk 'NR==2{print $1; exit}'`)
+
+(defwidget mpd_controller []
+  (button 
+    :class "mpd_controller" 
+    :onclick "mpc toggle" 
+    (label :text {
+      mpd_status == "[paused]" ? ""
+      : mpd_status == "[playing]" ? ""
+      : "?"
+    }))
+)

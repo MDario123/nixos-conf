@@ -1,0 +1,14 @@
+(include "./bar/right/power.yuck")
+(include "./bar/right/volume.yuck")
+(include "./bar/right/battery.yuck")
+;; (include "./bar/right/network.yuck")
+
+(defwidget right []
+  (box :halign "end" :space-evenly false :spacing 5
+    (systray :spacing 5)
+    ;; (network)
+    (volume)
+    (battery :status {EWW_BATTERY.BAT1.status} :charge {EWW_BATTERY.BAT1.capacity})
+    (power_buttons)
+  )
+)

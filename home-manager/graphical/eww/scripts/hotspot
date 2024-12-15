@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+fatal() {
+  echo "FATAL ERROR: $@"
+  exit 1
+}
+trap 'sudo -k' EXIT
+
+notify() {
+  notify-send -t 2000 "$1" &
+  aplay ./resources/sounds/tap.wav &
+}
+
+case $1 in 
+
+status)
+  STATUS=$(nmcli con show Hotspot | rg GENERAL.STATE --include-zero --count)
+
+  echo $STATUS
+ ;;
+
+up)
+  notify "Starting Hotspot"
+  nmcli con up Hotspot
+  ;;
+
+down)
+  notify "Stopping Hotspot"
+  nmcli con down Hotspot
+  ;;
+esac
+
+exit 0

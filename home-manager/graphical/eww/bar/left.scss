@@ -1,0 +1,36 @@
+.window_title {
+  font-family: "FantasqueSansM Nerd Font Mono";
+  font-size: 18px;
+  font-weight: 900;
+  background: $background;
+  border: 2px solid;
+  border-radius: 6px;
+  padding: 0px 4px 0px 4px;
+}
+
+.workspaces {
+  font-family: "FantasqueSansM Nerd Font Mono";
+  font-size: 18px;
+  font-weight: 900;
+  background: $background;
+  border: 2px solid;
+  border-radius: 6px;
+  padding: 0px 4px 0px 4px;
+}
+
+.workspace_button {
+  font-family: "FantasqueSansM Nerd Font Mono";
+  font-size: 18px;
+  font-weight: 900;
+  border-radius: 35%;
+  margin: 2px 0px;
+  padding: 0px 3px;
+
+  &.current {
+    background: $mauve;
+  }
+
+  &.empty {
+    opacity: 0.5;
+  }
+}

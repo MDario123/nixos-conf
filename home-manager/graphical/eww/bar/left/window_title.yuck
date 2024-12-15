@@ -1,0 +1,11 @@
+(deflisten window :initial "..." "./scripts/get-window-title")
+
+(defwidget window_title []
+  (revealer 
+    :transition "slideright" 
+    :reveal {window != ""}
+    :duration "250ms" 
+  (box 
+    :class "window_title"
+  (label :text {window} :limit-width 60)
+)))

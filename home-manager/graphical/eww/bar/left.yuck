@@ -1,0 +1,8 @@
+(include "./bar/left/window_title.yuck")
+(include "./bar/left/workspaces.yuck")
+
+(defwidget left []
+  (box :halign "start" :space-evenly false :spacing 5
+  (workspaces)
+  (window_title)
+))

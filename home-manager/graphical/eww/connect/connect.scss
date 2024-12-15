@@ -1,0 +1,26 @@
+.conn_on {
+  background: #8E8;
+  padding: 0px 5px;
+  border: 2px solid;
+  border-radius: 6px;
+  label {
+    color: $background;
+  }
+  min-height: 30px;
+}
+
+.conn_off {
+  background: $background;
+  padding: 0px 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 6px;
+  min-height: 30px;
+}
+
+button:hover {
+  background: $foreground;
+}
+button:active {
+  background: $mauve;
+}

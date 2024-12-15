@@ -1,0 +1,29 @@
+* {
+  all: unset;
+}
+
+@import "./colors.scss";
+
+* {
+  color: $mauve;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.basic_button {
+  background: $background;
+  padding: 0px 5px;
+  border: 2px solid;
+  border-radius: 6px;
+}
+
+.basic_button:hover {
+  background: $foreground;
+}
+
+.basic_button:active {
+  background: $mauve;
+}
+
+@import "./bar/bar.scss";
+@import "./connect/connect.scss";

@@ -1,0 +1,51 @@
+(defpoll connections :interval "1s" "./scripts/connection")
+(defpoll hotspot-status :interval "1s" "./scripts/hotspot status")
+(defpoll vpn-status :interval "1s" "./scripts/vpn status")
+(defvar reveal_connections false)
+
+(defwidget hotspot []
+  (button 
+    :class {hotspot-status == "1" ? "conn_on" : "conn_off"}
+    :onclick {hotspot-status == "1" ? "./scripts/hotspot down" : "./scripts/hotspot up"}
+    {hotspot-status == "1" ? "󰖩" : "󰤯"}
+))
+
+(defwidget vpn []
+  (button :class "basic_button"
+    :class {vpn-status == "1" ? "conn_on" : "conn_off"}
+    :onclick {vpn-status == "1" ? "./scripts/vpn down" : "./scripts/vpn up"}
+    {vpn-status == "1" ? "󰖂 󰖩" : "󰖂 󰤯"}
+))
+
+
+(defwidget wifi []
+  (revealer
+    :transition "slidedown"
+    :reveal reveal_connections
+    :duration "300ms"
+  (box 
+    :halign "fill"
+    :valign "start"
+    :orientation "vertical"
+    :spacing 5
+    :vexpand true
+    (box
+      :orientation "horizontal"
+      :spacing 5
+      (button 
+        :class "basic_button" 
+        :onclick 'eww update "connections=$(./scripts/connection)" & ' 
+        "󰑓"
+      )
+    )
+    ( for conn in connections
+      (button 
+            :class {conn.in_use == "*" ? "conn_on" : "conn_off"}
+            :onclick {conn.command}
+            {conn.ssid} 
+    ))
+    (vpn)
+    (hotspot)
+  )
+  )
+)

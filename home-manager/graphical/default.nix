@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./eww.nix
     ./fuzzel.nix
     ./gtk.nix
     ./mako.nix

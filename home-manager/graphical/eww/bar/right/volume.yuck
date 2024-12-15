@@ -1,0 +1,19 @@
+(defvar volume false)
+(defpoll current-volume :initial "0" :interval "1s" "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %'")
+
+(defwidget volume []
+  (eventbox :onhover "eww update volume=true" :onhoverlost "eww update volume=false" :halign "end"
+  (box :class "volume_box" :space-evenly false :halign "end" 
+  ""
+  (revealer :transition "slideright" :reveal volume :duration "300ms" 
+  (scale 
+      :class "volume"
+      :width 100
+      :round-digits 0
+      :min 0
+      :max 101
+      :value current-volume
+      :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+  )))
+))
+
