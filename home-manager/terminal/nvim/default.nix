@@ -3,12 +3,12 @@
 let
   codecompanion = pkgs.vimUtils.buildVimPlugin {
     name = "codecompanion";
-    version = "0.5.2";
+    version = "10.7.0";
     src = pkgs.fetchFromGitHub {
       owner = "olimorris";
       repo = "codecompanion.nvim";
-      rev = "9f63ae8012dce6c811238083b94620dd3d1d4893";
-      hash = "sha256-wB35K0HdOk+389ZhDJb/iZtE7hkyWUblJPuwD0f+Rxo=";
+      rev = "9f19ade90dd916bc1f51731465be8fb50eecc12a";
+      hash = "sha256-RAn7U3N9yxgHxugriMBLk5zZ8UhA8MYF2A1yONfl2Fk=";
     };
   };
 in
@@ -140,6 +140,7 @@ in
       }
 
       # Codecompanion for AI completion
+      copilot-vim
       {
         plugin = codecompanion;
         type = "lua";

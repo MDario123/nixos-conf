@@ -1,22 +1,23 @@
-local config = {}
-config.strategies = { chat = { adapter = "ollama" }, inline = { adapter = "ollama" }, agent = { adapter = "ollama" } }
-config.adapters = {
-  ollama = function()
-    return require("codecompanion.adapters").extend("ollama", {
-      env = {
-        url = "http://127.0.0.1:11434",
-      },
-    })
-  end,
-}
+if pcall(require, "codecompanion") then
+  local config = {}
+  config.strategies = {
+    chat = {
+      adapter = "copilot",
+    },
+    inline = {
+      adapter = "copilot",
+    },
+  }
 
-vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+  local keymap_opts = { noremap = true, silent = true }
+  vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", keymap_opts)
+  vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", keymap_opts)
+  vim.keymap.set("n", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", keymap_opts)
+  vim.keymap.set("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", keymap_opts)
+  vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", keymap_opts)
 
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd([[cab cc CodeCompanion]])
+  -- Expand 'cc' into 'CodeCompanion' in the command line
+  vim.cmd([[cab cc CodeCompanion]])
 
-require("codecompanion").setup(config)
+  require("codecompanion").setup(config)
+end
