@@ -82,6 +82,11 @@ in
         type = "lua";
         config = builtins.readFile ./plugin/lualine.lua;
       }
+      {
+        plugin = dressing-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugin/dressing.lua;
+      }
       # Utils
       {
         plugin = comment-nvim;
