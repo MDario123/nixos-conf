@@ -12,6 +12,7 @@
         (button
           :class "workspace_button ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == current-workspace ? "current" : ""}"
           :onclick "hyprctl --instance $(echo $HYPRLAND_INSTANCE_SIGNATURE) dispatch workspace ${workspace.id}"
+          :visible {workspace.windows > 0 || workspace.id == current-workspace}
           {workspace.id}
         )
 )))
