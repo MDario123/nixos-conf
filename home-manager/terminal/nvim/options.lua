@@ -152,3 +152,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+vim.keymap.set("n", "<M-j>", "<Cmd>cnext<CR>", { desc = "Move next in quickfix list" })
+vim.keymap.set("n", "<M-k>", "<Cmd>cprev<CR>", { desc = "Move prev in quickfix list" })
+vim.keymap.set("n", "<M-o>", "<Cmd>copen<CR>", { desc = "[O]pen quickfix list" })
+vim.keymap.set("n", "<M-c>", "<Cmd>cclose<CR>", { desc = "[C]lose quickfix list" })
