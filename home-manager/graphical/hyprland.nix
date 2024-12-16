@@ -213,9 +213,10 @@
 
       bindl = [
         # Control mpd with headphones
-        ", XF86AudioPlay, exec, mpc toggle"
-        ", XF86AudioPrev, exec, mpc prev"
-        ", XF86AudioNext, exec, mpc next"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioStop, exec, playerctl --all-players pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
       ];
 
       bindel = [
