@@ -173,6 +173,7 @@ lspconfig.clangd.setup({
   --   on_attach(client, bufnr)
   -- end,
   capabilities = M.capabilities,
+  cmd = { "clangd", "--background-index", "--clang-tidy" },
 })
 
 lspconfig.pylsp.setup({
