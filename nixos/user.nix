@@ -16,7 +16,7 @@
       ffmpeg
       # web browser
       firefox
-      inputs.zen-browser.packages."${system}".specific
+      inputs.zen-browser.packages."${system}".default
       chromium
       # for reading ebooks
       foliate
