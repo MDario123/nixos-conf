@@ -12,5 +12,6 @@
     vscode
 
     ollama-cuda
+    postman
   ];
 }
