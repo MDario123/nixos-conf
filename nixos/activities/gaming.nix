@@ -9,6 +9,7 @@
     steam
     steam-run
     vulkan-tools
+    temurin-jre-bin
 
     # Game
     osu-lazer
