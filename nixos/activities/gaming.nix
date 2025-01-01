@@ -13,6 +13,7 @@
 
     # Game
     osu-lazer
+    prismlauncher
   ];
 
   # hardware.steam-hardware.enable = true;
