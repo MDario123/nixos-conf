@@ -5,7 +5,7 @@
     font = {
       name = "FantasqueSansM Nerd Font Mono";
       size = 13;
-      package = with pkgs; (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; });
+      package = pkgs.nerd-fonts.fantasque-sans-mono;
     };
     settings = {
       tab_bar_min_tabs = 2;

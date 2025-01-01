@@ -57,7 +57,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    pkgs.nerd-fonts.fantasque-sans-mono
     font-awesome
     noto-fonts
   ];
