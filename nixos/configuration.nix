@@ -57,7 +57,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    pkgs.nerd-fonts.fantasque-sans-mono
+    nerd-fonts.fantasque-sans-mono
     font-awesome
     noto-fonts
   ];

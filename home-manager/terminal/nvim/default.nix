@@ -1,17 +1,5 @@
 { pkgs, ... }:
 
-let
-  codecompanion = pkgs.vimUtils.buildVimPlugin {
-    name = "codecompanion";
-    version = "10.7.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "olimorris";
-      repo = "codecompanion.nvim";
-      rev = "9f19ade90dd916bc1f51731465be8fb50eecc12a";
-      hash = "sha256-RAn7U3N9yxgHxugriMBLk5zZ8UhA8MYF2A1yONfl2Fk=";
-    };
-  };
-in
 {
   programs.neovim = {
     enable = true;
@@ -141,11 +129,6 @@ in
 
       # Codecompanion for AI completion
       copilot-vim
-      {
-        plugin = codecompanion;
-        type = "lua";
-        config = builtins.readFile ./plugin/codecompanion.lua;
-      }
     ];
   };
 }
