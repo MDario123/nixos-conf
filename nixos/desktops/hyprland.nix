@@ -48,6 +48,7 @@ in
     hypridle
     hyprlock
     hyprpaper
+    hyprsunset
     libnotify
     mako
     playerctl

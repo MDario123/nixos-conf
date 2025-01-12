@@ -54,8 +54,8 @@
         border_size = 1;
 
         # col.active_border = rgba($mauve) rgba($teal) rgba($green) rgba($sky) 45deg
-        "col.active_border" = "rgba(cba6f780)";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(cba6f7ff)";
+        "col.inactive_border" = "rgba(595959ff)";
 
         layout = "dwindle";
       };
@@ -86,11 +86,10 @@
         ];
 
         animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, myBezier, popin 80%"
-          "border, 1, 10, myBezier"
-          "borderangle, 1, 8, myBezier"
-          "fade, 1, 7, myBezier"
+          "windowsIn, 1, 5, myBezier"
+          "windowsOut, 0"
+          "windowsMove, 0"
+          "fade, 0"
           "workspaces, 1, 6, myBezier"
         ];
       };
@@ -108,10 +107,6 @@
         animate_manual_resizes = true;
         new_window_takes_over_fullscreen = 2;
       };
-
-      workspace = [
-        "2, bordersize:0"
-      ];
 
       windowrulev2 = [
         "float, class:^(Notas)$"
@@ -139,7 +134,8 @@
 
       exec-once = [
         "hyprpaper &"
-        "eww open-many bar connect &"
+        "hyprsunset &"
+        "eww open bar&"
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
         "zen &"
