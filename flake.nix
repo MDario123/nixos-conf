@@ -22,7 +22,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, aagl, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, aagl, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
