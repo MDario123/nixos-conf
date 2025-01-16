@@ -4,6 +4,7 @@
   programs.git.enable = true;
 
   environment.systemPackages = with pkgs; [
+    cachix
     cargo
     gcc
     # haskell compiler (here for the interactive version "ghci")
@@ -11,7 +12,6 @@
     git-credential-oauth
     vscode
 
-    ollama-cuda
     postman
   ];
 }

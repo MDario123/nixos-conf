@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  nix.settings.trusted-users = [ "root" "mdario" ];
   users.users.mdario = {
     uid = 1000;
     isNormalUser = true;
