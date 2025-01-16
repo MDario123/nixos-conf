@@ -54,6 +54,7 @@
             ./nixos/activities/docker.nix
             ./nixos/activities/gaming.nix
             ./nixos/activities/music.nix
+            ./nixos/activities/productivity.nix
           ];
         };
       };
