@@ -49,6 +49,7 @@
             ./nixos/displayManager/greetd.nix
             ./nixos/desktops/hyprland.nix
             ./nixos/desktops/gnome.nix
+            ./nixos/activities/communication.nix
             ./nixos/activities/programming.nix
             ./nixos/activities/docker.nix
             ./nixos/activities/gaming.nix

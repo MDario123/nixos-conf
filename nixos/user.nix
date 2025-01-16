@@ -11,7 +11,6 @@
         useDefaultExtensions = false;
         extensions = [ nemo-fileroller ];
       })
-      discord
       filezilla
       ffmpeg
       # web browser
@@ -26,7 +25,6 @@
       pinta
       libreoffice
       papirus-icon-theme
-      telegram-desktop
       wine
       # for screen recording
       obs-studio

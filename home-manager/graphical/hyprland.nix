@@ -167,6 +167,7 @@ in
         "size 80% 80%, class:^org.pulseaudio.pavucontrol$"
 
         "workspace 1 silent, class:^zen-beta$"
+        "workspace 8 silent, initialClass:^Slack$"
         "workspace 9 silent, class:^discord$"
         "workspace 10 silent, class:^org.telegram.desktop$"
       ];
@@ -186,8 +187,9 @@ in
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
         "zen &"
-        "telegram-desktop &"
+        "slack &"
         "discord &"
+        "telegram-desktop &"
       ];
 
       "$mainMod" = "SUPER";
