@@ -1,6 +1,53 @@
 { config, pkgs, ... }:
 
+let
+  hyprsunset-auto = (pkgs.writeShellScriptBin "hyprsunset-auto" ''
+    # Configuration
+    SUNRISE_TIME="06:00" # Sunrise time
+    SUNSET_TIME="18:00"  # Sunset time
+    DEFAULT_TEMP=6000  # Default temperature (daylight)
+    NIGHT_TEMP=3700      # Temperature at midnight
+    GRADUAL_INTERVAL=300  # Interval for gradual changes (in seconds)
+
+    # Function to convert time to minutes since midnight
+    time_to_minutes() {
+        IFS=: read -r hour minute <<<"$1"
+        echo $((hour * 60 + minute))
+    }
+
+    # Function to calculate temperature based on time
+    calculate_temp() {
+        local current_minutes=$(time_to_minutes "$1")
+        local sunrise_minutes=$(time_to_minutes "$SUNRISE_TIME")
+        local sunset_minutes=$(time_to_minutes "$SUNSET_TIME")
+        local night_minutes=$((1440 - sunset_minutes + sunrise_minutes)) # Total night duration in minutes
+
+        if ((current_minutes >= sunrise_minutes && current_minutes < sunset_minutes)); then
+            echo $DEFAULT_TEMP
+        else
+            if ((current_minutes < sunrise_minutes)); then
+                current_minutes=$((current_minutes + 1440))
+            fi
+            elapsed_night_minutes=$((current_minutes - sunset_minutes))
+            progress=$((elapsed_night_minutes * 1000 / night_minutes))
+            temp=$((DEFAULT_TEMP - (DEFAULT_TEMP - NIGHT_TEMP) * progress / 1000))
+            echo $temp
+        fi
+    }
+
+    # Main loop
+    while true; do
+        current_time=$(date +"%H:%M")
+        temperature=$(calculate_temp "$current_time")
+        (pkill -xf hyprsunset || exit 0) && hyprsunset -t "$temperature" &
+        sleep GRADUAL_INTERVAL # Sleep for the gradual interval
+    done
+  '');
+in
 {
+  home.packages = [
+    hyprsunset-auto
+  ];
   services.hypridle = {
     enable = true;
     settings = {
@@ -134,7 +181,7 @@
 
       exec-once = [
         "hyprpaper &"
-        "hyprsunset &"
+        "hyprsunset-auto &"
         "eww open bar&"
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
