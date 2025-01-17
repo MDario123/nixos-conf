@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.username = "mdario";
@@ -17,6 +17,14 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = false;
+    };
+  };
+
+  home.file = {
+    ".taskrc" = {
+      enable = true;
+      source = ../Assets/.taskrc;
+      target = ".taskrc";
     };
   };
 

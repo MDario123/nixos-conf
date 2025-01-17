@@ -178,6 +178,7 @@ in
         "HYPRCURSOR_SIZE,32"
         "XCURSOR_SIZE,32"
         "PATH,$PATH:${config.home.homeDirectory}/.local/bin"
+        "EDITOR,nvim"
       ];
 
       exec-once = [
@@ -221,6 +222,7 @@ in
         "$mainMod, V, exec, hdrop pavucontrol"
         "$mainMod, B, exec, hdrop blueman-manager"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
+        "$mainMod, T, exec, kitty --class 'Notas' taskwarrior-tui"
         # Download video in the clipboard
         "$mainMod, D, exec, wl-paste | xargs yt-dlp"
 
