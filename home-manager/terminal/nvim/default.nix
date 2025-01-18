@@ -34,6 +34,7 @@
 
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
+      ${builtins.readFile ./plugin/term.lua}
     '';
 
     plugins = with pkgs.vimPlugins; [
@@ -53,11 +54,6 @@
         plugin = which-key-nvim;
         type = "lua";
         config = ''require('which-key').setup()'';
-      }
-      {
-        plugin = nvterm;
-        type = "lua";
-        config = builtins.readFile ./plugin/nvterm.lua;
       }
       {
         plugin = barbar-nvim;
