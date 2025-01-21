@@ -53,7 +53,7 @@
       {
         plugin = which-key-nvim;
         type = "lua";
-        config = ''require('which-key').setup()'';
+        config = builtins.readFile ./plugin/which-key-nvim.lua;
       }
       {
         plugin = barbar-nvim;
