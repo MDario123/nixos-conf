@@ -12,7 +12,7 @@ let
     # Function to convert time to minutes since midnight
     time_to_minutes() {
         IFS=: read -r hour minute <<<"$1"
-        echo $((hour * 60 + minute))
+        echo $((10#$hour * 60 + 10#$minute))
     }
 
     # Function to calculate temperature based on time
@@ -20,17 +20,24 @@ let
         local current_minutes=$(time_to_minutes "$1")
         local sunrise_minutes=$(time_to_minutes "$SUNRISE_TIME")
         local sunset_minutes=$(time_to_minutes "$SUNSET_TIME")
-        local night_minutes=$((1440 - sunset_minutes + sunrise_minutes)) # Total night duration in minutes
+        local night_duration=$((1440 - sunset_minutes + sunrise_minutes)) # Total night duration in minutes
+        local night_midpoint=$((sunset_minutes + night_duration / 2))
+        local adjusted_minutes=$((current_minutes < sunrise_minutes ? current_minutes + 1440 : current_minutes))
 
-        if ((current_minutes >= sunrise_minutes && current_minutes < sunset_minutes)); then
+        if ((sunrise_minutes <= current_minutes && current_minutes < sunset_minutes)); then
+            # Daytime: Constant temperature
             echo $DEFAULT_TEMP
         else
-            if ((current_minutes < sunrise_minutes)); then
-                current_minutes=$((current_minutes + 1440))
+            # Nighttime: Gradual change
+            if ((adjusted_minutes <= night_midpoint)); then
+                # First half of the night: Decrease temperature
+                progress=$(( (adjusted_minutes - sunset_minutes) * 1000 / (night_midpoint - sunset_minutes) ))
+                temp=$((DEFAULT_TEMP - (DEFAULT_TEMP - NIGHT_TEMP) * progress / 1000))
+            else
+                # Second half of the night: Increase temperature
+                progress=$(( (adjusted_minutes - night_midpoint) * 1000 / (sunrise_minutes + 1440 - night_midpoint) ))
+                temp=$((NIGHT_TEMP + (DEFAULT_TEMP - NIGHT_TEMP) * progress / 1000))
             fi
-            elapsed_night_minutes=$((current_minutes - sunset_minutes))
-            progress=$((elapsed_night_minutes * 1000 / night_minutes))
-            temp=$((DEFAULT_TEMP - (DEFAULT_TEMP - NIGHT_TEMP) * progress / 1000))
             echo $temp
         fi
     }
