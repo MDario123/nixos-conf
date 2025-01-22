@@ -17,8 +17,6 @@ require("null-ls").setup({
     null_ls.builtins.formatting.stylua.with({
       extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
     }),
-    -- Python
-    null_ls.builtins.formatting.black,
     -- PHP
     null_ls.builtins.formatting.pint,
     -- QML
