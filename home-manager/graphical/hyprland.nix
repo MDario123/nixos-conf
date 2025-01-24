@@ -58,7 +58,7 @@ let
     num_files=$(ls "$folder" | wc -l)
 
     # Calculate the file index based on the current time
-    index=$(( $(date +%s) / 60 % num_files ))
+    index=$(( $(date +%s) / 15 % num_files ))
 
     # Get the file to return based on the calculated index
     file=$(ls "$folder" | sort | sed -n "$((index + 1))p")
