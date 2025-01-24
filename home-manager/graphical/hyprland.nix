@@ -50,10 +50,27 @@ let
         sleep "$GRADUAL_INTERVAL" # Sleep for the gradual interval
     done
   '');
+  get-lock-wallpaper = (pkgs.writeShellScriptBin "get-lock-wallpaper" ''
+    # Directory containing files
+    folder="${config.home.homeDirectory}/Pictures/wallpapers/lock"
+
+    # Get the number of files in the folder
+    num_files=$(ls "$folder" | wc -l)
+
+    # Calculate the file index based on the current time
+    index=$(( $(date +%s) / 60 % num_files ))
+
+    # Get the file to return based on the calculated index
+    file=$(ls "$folder" | sort | sed -n "$((index + 1))p")
+
+    # Print the file path
+    echo "$folder/$file"
+  '');
 in
 {
   home.packages = [
     hyprsunset-auto
+    get-lock-wallpaper
   ];
   services.hypridle = {
     enable = true;
@@ -77,6 +94,18 @@ in
       ];
     };
   };
+
+  xdg.configFile = {
+    "hyprlock.conf" = {
+      source = ../../Assets/hyprlock.conf;
+      target = "hypr/hyprlock.conf";
+    };
+    "hyprpaper.conf" = {
+      source = ../../Assets/hyprpaper.conf;
+      target = "hypr/hyprpaper.conf";
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {

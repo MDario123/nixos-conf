@@ -21,8 +21,8 @@ in
   environment.systemPackages = [
     (pkgs.callPackage sddm-glacier {
       themeConfig = {
-        Background = "${../../Assets/wallpapers/nixos.png}";
-        AnimatedBackground = "${../../Assets/wallpapers/video.mp4}";
+        Background = "${../../Assets/wallpapers/login/nixos.png}";
+        AnimatedBackground = "${../../Assets/wallpapers/login/video.mp4}";
         AnimationSpeedMultiplier = (144 / 60);
       };
     })

@@ -17,4 +17,11 @@
       output = ''%(playlist|Individual)s/%(playlist_index&{}\ -\ |)s%(title)s.%(ext)s'';
     };
   };
+
+  home.file = {
+    "wallpapers" = {
+      source = ../../Assets/wallpapers;
+      target = "Pictures/wallpapers";
+    };
+  };
 }
