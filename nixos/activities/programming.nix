@@ -7,6 +7,7 @@
     cachix
     cargo
     gcc
+    gh
     # haskell compiler (here for the interactive version "ghci")
     ghc
     git-credential-oauth
