@@ -63,6 +63,10 @@
     noto-fonts
   ];
 
+  environment.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+  };
+
   # Do NOT change this value 
   system.stateVersion = "23.11"; # Did you read the comment?
 
