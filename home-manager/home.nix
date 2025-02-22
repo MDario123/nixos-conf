@@ -18,6 +18,9 @@
       push.autoSetupRemote = true;
       pull.rebase = false;
     };
+    ignores = [
+      ".rustfmt.toml"
+    ];
   };
 
   home.file = {
