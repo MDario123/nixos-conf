@@ -246,7 +246,7 @@ in
 
         # Main applications
         "$mainMod, Q, exec, kitty"
-        "$mainMod, E, exec, nemo"
+        "$mainMod, E, exec, kitty yazi"
         "$mainMod SHIFT, L, exec, hyprlock"
         "$mainMod, F1, exec, firefox"
         "$mainMod, O, exec, fuzzel"
