@@ -54,6 +54,7 @@
     unzip
     vim
     wl-clipboard
+    yazi
     yq-go
     zoxide
   ];
