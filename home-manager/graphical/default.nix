@@ -18,6 +18,17 @@
     };
   };
 
+  programs.yazi = {
+    enable = true;
+    settings = {
+      opener = {
+        play = [
+          { run = "qmplay2 \"$@\""; orphan = true; for = "unix"; }
+        ];
+      };
+    };
+  };
+
   home.file = {
     "wallpapers" = {
       source = ../../Assets/wallpapers;
