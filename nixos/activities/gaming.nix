@@ -9,7 +9,6 @@
     steam
     steam-run
     vulkan-tools
-    temurin-jre-bin
     teamspeak3
 
     # Game
