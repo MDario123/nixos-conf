@@ -17,6 +17,7 @@
       intelephense
       typescript-language-server
       vscode-langservers-extracted
+      ruff
 
       # Formatter
       nixpkgs-fmt

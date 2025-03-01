@@ -181,6 +181,16 @@ lspconfig.pylsp.setup({
   capabilities = M.capabilities,
 })
 
+lspconfig.ruff.setup({
+  -- on_attach = on_attach,
+  capabilities = M.capabilities,
+  init_options = {
+    settings = {
+      logLevel = "debug",
+    },
+  },
+})
+
 lspconfig.intelephense.setup({
   -- on_attach = on_attach,
   capabilities = M.capabilities,
