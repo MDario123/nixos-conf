@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    qmplay2-qt6
+    qmplay2-qt5
     yazi
   ];
 }
