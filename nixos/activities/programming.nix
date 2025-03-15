@@ -16,6 +16,8 @@
     postman
 
     mysql-workbench
+
+    ldtk
   ];
 
   services.mysql = {
