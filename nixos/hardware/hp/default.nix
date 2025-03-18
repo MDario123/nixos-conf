@@ -76,6 +76,33 @@
           }
         ];
       };
+      pipewire = {
+        "context.properties" = {
+          "default.clock.quantum" = 1024;
+          "default.clock.min-quantum" = 32;
+        };
+        "99-rtkit" = {
+          "context.properties" = {
+            "default.clock.rtkit" = true; # Explicitly enable RTKit
+            "default.clock.rtkit.prio" = 88; # Set priority explicitly
+          };
+        };
+      };
+    };
+  };
+
+  systemd.user.services = {
+    pipewire = {
+      serviceConfig = {
+        # Lower niceness and enable real-time
+        Nice = -15;
+        LimitRTPRIO = 95; # Max real-time priority
+        LimitMEMLOCK = "64M";
+      };
+    };
+    wireplumber.serviceConfig = {
+      # Ensure WirePlumber also gets RT priority
+      LimitRTPRIO = 95;
     };
   };
 
