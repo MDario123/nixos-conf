@@ -55,6 +55,9 @@ in
     playerctl
     zenity
 
+    # Drag and drop utility https://github.com/mwh/dragon
+    dragon-drop
+
     # Utility to keep track of sleep and hydration
     hydrated-sloth
 
