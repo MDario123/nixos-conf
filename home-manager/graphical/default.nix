@@ -27,6 +27,14 @@
         ];
       };
     };
+    keymap = {
+      manager.prepend_keymap = [
+        {
+          on = [ "<C-n>" ];
+          run = ''shell -- dragon-drop -x -T "$1"'';
+        }
+      ];
+    };
   };
 
   home.file = {
