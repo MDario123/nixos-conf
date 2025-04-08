@@ -46,7 +46,7 @@ let
     while true; do
         current_time=$(date +"%H:%M")
         temperature=$(calculate_temp "$current_time")
-        (pkill -x hyprsunset || exit 0) && hyprsunset -t "$temperature" &
+        hyprctl hyprsunset temperature "$temperature"
         sleep "$GRADUAL_INTERVAL" # Sleep for the gradual interval
     done
   '');
