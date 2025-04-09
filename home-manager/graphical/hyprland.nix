@@ -254,7 +254,7 @@ in
         "$mainMod, P, exec, hdrop pinta"
         ", Print, exec, grimblast --notify copysave screen ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
         "SHIFT, Print, exec, grimblast --notify copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%s_grim.png')"
-        "$mainMod, N, exec, kitty --class 'Notas' --hold zsh -c '(cd ~/Documents/Notas; nvim Queue.md)'" # Notes
+        "$mainMod, N, exec, mkdir -p ~Documents/Notas; ls -1 ~/Documents/Notas | fuzzel -d | xargs -I {} kitty --class Notas -d ~/Documents/Notas nvim {}"
         "$mainMod, V, exec, hdrop pavucontrol"
         "$mainMod, B, exec, hdrop blueman-manager"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
