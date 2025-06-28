@@ -123,8 +123,12 @@
         config = builtins.readFile ./plugin/cmp.lua;
       }
 
-      # Codecompanion for AI completion
-      copilot-vim
+      # AI completion
+      {
+        plugin = copilot-vim;
+        type = "lua";
+        config = builtins.readFile ./plugin/copilot.lua;
+      }
     ];
   };
 }
