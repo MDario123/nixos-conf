@@ -153,7 +153,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.keymap.set("n", "<M-j>", "<Cmd>cnext<CR>", { desc = "Move next in quickfix list" })
-vim.keymap.set("n", "<M-k>", "<Cmd>cprev<CR>", { desc = "Move prev in quickfix list" })
-vim.keymap.set("n", "<M-o>", "<Cmd>copen<CR>", { desc = "[O]pen quickfix list" })
-vim.keymap.set("n", "<M-c>", "<Cmd>cclose<CR>", { desc = "[C]lose quickfix list" })
+-- Move lines up and down in normal and visual mode
+-- It's kind of slow, so use it only for few movements
+-- Normal mode mappings
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+
+-- Visual mode mappings
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
