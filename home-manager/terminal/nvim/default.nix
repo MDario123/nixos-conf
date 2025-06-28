@@ -10,14 +10,14 @@
 
     extraPackages = with pkgs; [
       # LSPs
+      gopls
+      intelephense
       lua-language-server
       nil
       python312Packages.python-lsp-server
-      gopls
-      intelephense
+      ruff
       typescript-language-server
       vscode-langservers-extracted
-      ruff
 
       # Formatter
       nixpkgs-fmt
