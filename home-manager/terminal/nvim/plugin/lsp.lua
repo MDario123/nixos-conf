@@ -205,3 +205,8 @@ lspconfig.ts_ls.setup({
 lspconfig.cssls.setup({
   capabilities = M.capabilities,
 })
+
+lspconfig.csharp_ls.setup({
+  root_dir = util.root_pattern("*.sln", "*.csproj", ".git"),
+  capabilities = M.capabilities,
+})

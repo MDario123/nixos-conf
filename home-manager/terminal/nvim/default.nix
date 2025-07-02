@@ -19,6 +19,9 @@
       typescript-language-server
       vscode-langservers-extracted
 
+      ## Unity
+      csharp-ls
+
       # Formatter
       nixpkgs-fmt
       stylua
