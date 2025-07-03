@@ -27,6 +27,10 @@ in
 
     ldtk
 
+    (unityhub.override {
+      extraPkgs = (pkgs: with pkgs; [ vscode dotnet-sdk mono ]);
+    })
+
     query_model
     ai_generate_commit_msg
   ];
