@@ -23,6 +23,9 @@ in
     git-credential-oauth
     vscode
 
+    postgresql
+    prisma
+
     postman
 
     ldtk
