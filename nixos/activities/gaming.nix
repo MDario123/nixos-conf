@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
-  # hardware.xpadneo.enable = true;
+  hardware.xpadneo.enable = true;
   environment.systemPackages = with pkgs; [
     lutris
     mangohud
     ppsspp
+    ryubing
     steam
     steam-run
     vulkan-tools
@@ -16,7 +17,8 @@
     prismlauncher
   ];
 
-  # hardware.steam-hardware.enable = true;
+  programs.haguichi.enable = true;
+
   programs.steam = {
     enable = true;
     # extest.enable = true;
