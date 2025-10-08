@@ -10,7 +10,6 @@ let
       hash = "sha256-ZWR+dVzVBaMLrWPnDLWzattHmqhzmQ86olIt30EN9ws=";
     };
 
-    useFetchCargoVendor = true;
     cargoHash = "sha256-kp5bRs6B25+aBa2RWx3Mmf1Kn7/H09x39HGuUSGSSlc=";
 
     nativeBuildInputs = with pkgs; [

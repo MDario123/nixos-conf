@@ -15,13 +15,13 @@
       ffmpeg
       # web browser
       firefox
-      inputs.zen-browser.packages."${system}".default
       chromium
       # for reading ebooks
       foliate
       # terminal emulator
       kitty
       # for painting
+      krita
       pinta
       libreoffice
       papirus-icon-theme
