@@ -114,9 +114,8 @@ in
       ];
 
       input = {
-        kb_layout = "us, us";
-        kb_variant = ", colemak";
-        kb_options = "caps:backspace, grp:alt_shift_toggle";
+        kb_layout = "us";
+        kb_options = "caps:backspace";
         numlock_by_default = true;
 
         repeat_rate = 60;
@@ -222,6 +221,7 @@ in
         "hyprsunset-auto &"
         "eww open bar&"
         "mbas &"
+        "fcitx5 -d &"
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
         "firefox &"

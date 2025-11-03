@@ -13,7 +13,22 @@
   time.timeZone = "Europe/Madrid";
 
   # Select internationalisation properties
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "all" ];
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        addons = with pkgs; [
+          fcitx5-mozc
+          fcitx5-rime
+          fcitx5-pinyin-moegirl
+          fcitx5-table-extra
+        ];
+      };
+    };
+  };
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true;
@@ -61,6 +76,8 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
     font-awesome
+    hachimarupop
+    jigmo
     noto-fonts
   ];
 
