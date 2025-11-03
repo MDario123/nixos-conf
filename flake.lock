@@ -98,6 +98,26 @@
         "type": "github"
       }
     },
+    "mbas": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762173812,
+        "narHash": "sha256-sAdLP02KbtnCqyci/yFChP59jZ1vnoJkUsUATFFEGrY=",
+        "owner": "MDario123",
+        "repo": "mbas",
+        "rev": "a66ccffe8b7e96e23f08b6a92ea42da7185661b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MDario123",
+        "repo": "mbas",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1744536153,
@@ -155,6 +175,7 @@
         "aagl": "aagl",
         "home-manager": "home-manager",
         "isw-nix": "isw-nix",
+        "mbas": "mbas",
         "nixpkgs": "nixpkgs_2",
         "quickshell": "quickshell"
       }

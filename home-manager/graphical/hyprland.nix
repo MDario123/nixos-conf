@@ -221,6 +221,7 @@ in
         "hyprpaper &"
         "hyprsunset-auto &"
         "eww open bar&"
+        "mbas &"
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
         "firefox &"
@@ -232,7 +233,7 @@ in
       "$mainMod" = "SUPER";
 
       "$current-volume" = "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %'";
-      "$notifyVolume" = "$current-volume | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && pactl play-sample tap-notification";
+      "$notifyVolume" = "$current-volume | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && echo 'PLAY' | socat -u - UNIX-SENDTO:/tmp/mbas.sock";
 
       "$notifyBacklight" = "light -G | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Backlight\"";
 

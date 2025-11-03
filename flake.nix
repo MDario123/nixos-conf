@@ -19,9 +19,13 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mbas = {
+      url = "github:MDario123/mbas";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, aagl, mbas, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -42,6 +46,11 @@
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig; # Set up Cachix
               programs.anime-game-launcher.enable = true;
+            }
+            {
+              environment.systemPackages = [
+                mbas.packages.${system}.mbas
+              ];
             }
             ./nixos/hardware/hp
             ./nixos/configuration.nix
