@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./eww.nix
@@ -42,5 +42,6 @@
       source = ../../Assets/wallpapers;
       target = "Pictures/wallpapers";
     };
+    ".icons/Papirus-Dark".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark";
   };
 }

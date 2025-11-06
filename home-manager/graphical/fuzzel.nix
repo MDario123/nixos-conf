@@ -7,7 +7,7 @@
       main = {
         font = "FantasqueSansM Nerd Font Mono:size=12";
         dpi-aware = "auto";
-        icon-theme = "hicolor";
+        icon-theme = "Papirus-Dark";
         icons-enabled = "yes";
         show-actions = "yes";
         anchor = "center";
