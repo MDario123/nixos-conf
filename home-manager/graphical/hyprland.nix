@@ -106,6 +106,13 @@ in
     };
   };
 
+  home.file = {
+    ".local/bin/desktop_commands" = {
+      enable = true;
+      source = ../../Assets/bin/desktop_commands;
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -260,8 +267,7 @@ in
         "$mainMod, B, exec, hdrop blueman-manager"
         "$mainMod, W, exec, lutris lutris:rungameid/2"
         "$mainMod, T, exec, kitty --class 'Notas' taskwarrior-tui"
-        # Download video in the clipboard
-        "$mainMod, D, exec, wl-paste | xargs yt-dlp"
+        "$mainMod SHIFT, K, exec, desktop_commands"
 
         # Move focus 
         "$mainMod, H, cyclenext, prev"

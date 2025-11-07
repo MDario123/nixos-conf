@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Check that notify-send is available
+notify-send --version &> /dev/null
+NOTIFY_SEND_AVAILABLE=$?
+
+if [ $? -ne 0 ]; then
+    echo "[WARN] \`notify-send\` is not installed. Continuing without notifications."
+fi
+
+# Check that fuzzel is available
+fuzzel --version &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "[ERR] \`fuzzel\` is not installed. Exiting."
+    exit 1
+fi
+
+# Create cache directory if it doesn't exist
+CACHE_DIR="$HOME/.cache/desktop_commands"
+touch "$CACHE_DIR"
+
+# Function to send a notification
+send_notification() {
+    if [ $NOTIFY_SEND_AVAILABLE -ne 0 ]; then
+        return
+    fi
+    local title="$1"
+    local message="$2"
+    notify-send "$title" "$message"
+}
+
+# Prepare command list for fuzzel
+COMMANDS=()
+
+MY_CONFIG_DIR="$HOME/.config/desktop-commands"
+
+# Execute each script in the config directory to get commands
+for script in "$MY_CONFIG_DIR"/*.sh; do
+    if [ -x "$script" ]; then
+        while IFS= read -r line; do
+            COMMANDS+=("$line")
+        done < <("$script")
+    fi
+done
+
+# Create fuzzel input
+FUZZEL_INPUT=$(printf "%s\n" "${COMMANDS[@]}" | cut -d':' -f1)
+SELECTED_COMMAND=$(echo -e "$FUZZEL_INPUT" | fuzzel -d --cache="$CACHE_DIR" --index)
+
+if [ -n "$SELECTED_COMMAND" ]; then
+    # Find the corresponding command
+    SELECTED_COMMAND=$(printf "%s" "${COMMANDS[$SELECTED_COMMAND]}")
+    COMMAND_NAME=$(printf "%s" "$SELECTED_COMMAND" | cut -d':' -f1)
+    COMMAND_TO_EXECUTE=$(printf "%s" "$SELECTED_COMMAND" | cut -d':' -f2-)
+    
+    if [ -n "$COMMAND_TO_EXECUTE" ]; then
+        # Execute the command
+        eval "$COMMAND_TO_EXECUTE" &> /dev/null
+        send_notification "Command Executed" "$COMMAND_NAME"
+    else
+        send_notification "Error" "No command found for selection."
+    fi
+fi
