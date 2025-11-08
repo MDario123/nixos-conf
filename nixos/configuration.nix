@@ -61,6 +61,7 @@
     neovim
     ouch
     pulseaudioFull
+    python3
     ripgrep
     socat
     starship
