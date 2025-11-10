@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, unstable-pkgs, ... }:
 {
   # Bluetooth (GUI)
   services.blueman.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    nextcloud-client
+  environment.systemPackages = [
+    pkgs.nextcloud-client
+    unstable-pkgs.quickshell
   ];
 }

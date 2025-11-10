@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, mbas, ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, aagl, mbas, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -35,18 +36,19 @@
           allowUnfree = true;
         };
       };
+      unstable-pkgs = import nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       nixosConfigurations = {
         mdario = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system inputs outputs; };
+          specialArgs = { inherit system inputs outputs unstable-pkgs; };
           modules = [
             # inputs.isw-nix.nixosModule
-            {
-              imports = [ aagl.nixosModules.default ];
-              nix.settings = aagl.nixConfig; # Set up Cachix
-              programs.anime-game-launcher.enable = true;
-            }
             {
               environment.systemPackages = [
                 mbas.packages.${system}.mbas
