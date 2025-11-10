@@ -1,32 +1,5 @@
 { inputs, config, lib, pkgs, system, ... }:
 
-let
-  hydrated-sloth = pkgs.rust.packages.stable.rustPlatform.buildRustPackage {
-    name = "hydrated-sloth";
-    src = pkgs.fetchFromGitHub {
-      owner = "MDario123";
-      repo = "hydrated_sloth";
-      rev = "7cc0620fb2875105c49fb8df9348ec3923e735d5";
-      hash = "sha256-ZWR+dVzVBaMLrWPnDLWzattHmqhzmQ86olIt30EN9ws=";
-    };
-
-    cargoHash = "sha256-kp5bRs6B25+aBa2RWx3Mmf1Kn7/H09x39HGuUSGSSlc=";
-
-    nativeBuildInputs = with pkgs; [
-      pkg-config
-      gcc
-      rustc
-      cargo
-    ];
-
-    buildInputs = with pkgs; [
-      glib
-      pango
-      gdk-pixbuf
-      gtk3
-    ];
-  };
-in
 {
   imports = [
     ./common.nix
@@ -56,9 +29,6 @@ in
 
     # Drag and drop utility https://github.com/mwh/dragon
     dragon-drop
-
-    # Utility to keep track of sleep and hydration
-    hydrated-sloth
 
     # PulseAudio GUI
     pavucontrol
