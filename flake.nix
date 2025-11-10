@@ -56,7 +56,6 @@
             ./nixos/configuration.nix
             ./nixos/displayManager/greetd.nix
             ./nixos/desktops/hyprland.nix
-            ./nixos/desktops/gnome.nix
             ./nixos/activities/common.nix
             ./nixos/activities/communication.nix
             ./nixos/activities/programming.nix
