@@ -24,14 +24,6 @@
     ];
   };
 
-  home.file = {
-    ".taskrc" = {
-      enable = true;
-      source = ../Assets/.taskrc;
-      target = ".taskrc";
-    };
-  };
-
   # You should not change this value
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
