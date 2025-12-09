@@ -77,7 +77,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
     font-awesome
-    hachimarupop
+    koruri
     jigmo
     noto-fonts
   ];
