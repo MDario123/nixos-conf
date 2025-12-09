@@ -2,10 +2,10 @@
   description = "Home Manager configuration of mdario";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     aagl = {
@@ -26,7 +26,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, aagl, mbas, ... } @ inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , aagl
+    , mbas
+    , ...
+    }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -46,7 +54,14 @@
     {
       nixosConfigurations = {
         mdario = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system inputs outputs unstable-pkgs; };
+          specialArgs = {
+            inherit
+              system
+              inputs
+              outputs
+              unstable-pkgs
+              ;
+          };
           modules = [
             # inputs.isw-nix.nixosModule
             {

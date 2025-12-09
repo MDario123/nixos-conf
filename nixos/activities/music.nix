@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    mpc-cli
+    mpc
     ymuse
   ];
 

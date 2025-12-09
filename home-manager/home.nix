@@ -10,9 +10,11 @@
 
   programs.git = {
     enable = true;
-    userName = "MDario123";
-    userEmail = "manuel.dario.oliver@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "MDario123";
+        email = "manuel.dario.oliver@gmail.com";
+      };
       credential.helper = "oauth";
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
@@ -23,9 +25,6 @@
       ".rustfmt.toml"
     ];
   };
-
-  # You should not change this value
-  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -40,6 +39,9 @@
   };
 
   home.sessionPath = [ "$HOME/.local/bin" ];
+
+  # You should not change this value
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = false;

@@ -86,9 +86,15 @@
     NIXPKGS_ALLOW_UNFREE = "1";
   };
 
-  # Do NOT change this value 
+  # Do NOT change this value
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
 }
