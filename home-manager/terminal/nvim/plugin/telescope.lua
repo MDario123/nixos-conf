@@ -1,3 +1,9 @@
+require("telescope").setup({
+  defaults = {
+    layout_strategy = "vertical",
+  },
+})
+
 local function map(bind, cmd, desc)
   vim.keymap.set("n", "<leader>" .. bind, "<Cmd>Telescope " .. cmd .. "<CR>", { desc = desc })
 end
