@@ -44,19 +44,22 @@ for script in "$MY_CONFIG_DIR"/*.sh; do
 done
 
 # Create fuzzel input
-FUZZEL_INPUT=$(printf "%s\n" "${COMMANDS[@]}" | cut -d':' -f1)
+FUZZEL_INPUT=$(printf "%s\n" "${COMMANDS[@]}" | jq -r '.name+"\\0icon\\x1f"+.icon')
 SELECTED_COMMAND=$(echo -e "$FUZZEL_INPUT" | fuzzel -d --cache="$CACHE_DIR" --index)
 
 if [ -n "$SELECTED_COMMAND" ]; then
     # Find the corresponding command
     SELECTED_COMMAND=$(printf "%s" "${COMMANDS[$SELECTED_COMMAND]}")
-    COMMAND_NAME=$(printf "%s" "$SELECTED_COMMAND" | cut -d':' -f1)
-    COMMAND_TO_EXECUTE=$(printf "%s" "$SELECTED_COMMAND" | cut -d':' -f2-)
-    
+    COMMAND_NAME=$(printf "%s" "$SELECTED_COMMAND" | jq -r '.name')
+    COMMAND_TO_EXECUTE=$(printf "%s" "$SELECTED_COMMAND" | jq -r '.cmd')
+    SILENT=$(printf "%s" "$SELECTED_COMMAND" | jq -r '.silent // false')
+
     if [ -n "$COMMAND_TO_EXECUTE" ]; then
         # Execute the command
         eval "$COMMAND_TO_EXECUTE" &> /dev/null
-        send_notification "Command Executed" "$COMMAND_NAME"
+        if [ "$SILENT" != "true" ]; then
+            send_notification "Command Executed" "$COMMAND_NAME"
+        fi
     else
         send_notification "Error" "No command found for selection."
     fi
