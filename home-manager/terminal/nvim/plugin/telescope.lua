@@ -12,11 +12,12 @@ end
 map("ff", "find_files", "Telescope [f]ind [f]iles")
 map("fw", "live_grep", "Telescope live grep")
 map("fz", "current_buffer_fuzzy_find", "Telescope find in current buffer")
+map("fb", "buffers", "Telescope [b]uffers")
 
 -- Telescope Git-related commands
 map("fg", "git_status", "Telescope [f]ind [g]it status")
-map("fb", "git_branches", "Telescope [f]ind [b]ranches")
-map("fB", "git_bcommits", "Telescope [f]ind [B]uffer git commits")
+map("fgb", "git_branches", "Telescope [f]ind [b]ranches")
+map("fgc", "git_bcommits", "Telescope [f]ind buffer git [c]ommits")
 
 -- Telescope LSP-related commands
 map("fr", "lsp_references", "Telescope [f]ind [r]eferences")
