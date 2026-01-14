@@ -212,6 +212,15 @@ in
         "workspace 8 silent, initialClass:^Slack$"
         "workspace 9 silent, class:^discord$"
         "workspace 10 silent, class:^org.telegram.desktop$"
+
+        "noscreenshare, class:^com.rtosta.zapzap$"
+        "noscreenshare, class:^Slack$"
+        "noscreenshare, class:^discord$"
+        "noscreenshare, class:^org.telegram.desktop$"
+      ];
+
+      layerrule = [
+        "noscreenshare, notifications"
       ];
 
       env = [
