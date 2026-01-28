@@ -162,3 +162,6 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
 -- Visual mode mappings
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+-- Exit insert mode by typing 'jj' quickly
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
