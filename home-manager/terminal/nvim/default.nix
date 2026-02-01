@@ -14,7 +14,9 @@
       intelephense
       lua-language-server
       nil
-      python312Packages.python-lsp-server
+      python313Packages.python-lsp-server
+      mypy
+      sqls
       ruff
       typescript-language-server
       vscode-langservers-extracted

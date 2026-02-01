@@ -218,3 +218,13 @@ vim.lsp.enable("ts_ls")
 vim.lsp.config("cssls", {
   filetypes = { "css", "scss", "less" },
 })
+vim.lsp.enable("cssls")
+
+-- SQL
+vim.lsp.config("sqls", {
+  cmd = { "sqls", "-config", vim.fn.getcwd() .. "/sqls.yml" },
+  filetypes = { "sql" },
+  root_markers = { { "sqls.yaml", "sqls.yml" }, ".git" },
+  workspace_required = true,
+})
+vim.lsp.enable("sqls")
