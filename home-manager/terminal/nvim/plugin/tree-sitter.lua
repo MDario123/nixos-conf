@@ -9,6 +9,14 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
+vim.treesitter.query.set("python", "injections", [[
+(
+(string_content) @injection.content
+(#match? @injection.content "^[ \n]*--[ \n]*sql")
+(#set! injection.language "sql")
+)
+]])
+
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo.foldminlines = 10
