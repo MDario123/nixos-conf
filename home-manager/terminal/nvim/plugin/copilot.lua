@@ -23,8 +23,4 @@ vim.keymap.set("n", "<leader>ce", "<cmd>Copilot enable<CR>", {
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_filetypes = {
   ["*"] = false,
-  lua = true,
-  python = true,
-  javascript = true,
-  typescript = true,
 }
