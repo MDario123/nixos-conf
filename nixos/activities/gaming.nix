@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{  pkgs
+, ...
+}:
 
 {
-  hardware.xpadneo.enable = true;
+  programs.gamemode = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
+    flitter
     lutris
     mangohud
     ppsspp
