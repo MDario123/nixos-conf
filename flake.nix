@@ -27,13 +27,14 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    , aagl
-    , mbas
-    , ...
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      aagl,
+      mbas,
+      ...
     }@inputs:
     let
       inherit (self) outputs;
@@ -66,7 +67,7 @@
             # inputs.isw-nix.nixosModule
             {
               environment.systemPackages = [
-                mbas.packages.${system}.mbas
+                (mbas.packages.${system}.mbas.override { NIX_ENFORCE_NO_NATIVE=false; build="RELEASE_NATIVE"; })
               ];
             }
             ./nixos/hardware/hp
