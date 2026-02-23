@@ -16,8 +16,6 @@
     };
     themeFile = "Catppuccin-Mocha";
     extraConfig = ''
-      map f1 launch --cwd=current
-      map f2 close_window
       enabled_layouts tall,fat
     '';
   };
