@@ -165,3 +165,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true
 
 -- Exit insert mode by typing 'jj' quickly
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+
+vim.highlight.priorities.semantic_tokens = 90
+vim.highlight.priorities.treesitter = 100
