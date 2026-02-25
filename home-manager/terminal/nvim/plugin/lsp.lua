@@ -12,6 +12,7 @@ vim.api.nvim_create_user_command("Format", function(_)
   end
   vim.lsp.buf.format({ async = false })
 end, { desc = "Format current buffer with LSP" })
+vim.keymap.set("n", "<Leader>F", "<Cmd> Format <CR>", { desc = "[F]ormat current buffer" })
 
 vim.g.lsp_on_attach = function(event)
   -- NOTE: Remember that Lua is a real programming language, and as such it is possible
@@ -103,7 +104,6 @@ vim.g.lsp_on_attach = function(event)
     end, "[T]oggle Inlay [H]ints")
   end
 end
-
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
   callback = vim.g.lsp_on_attach,
@@ -186,21 +186,15 @@ vim.lsp.config("clangd", {
 vim.lsp.enable("clangd")
 
 -- Python
-vim.lsp.config("pylsp", {
+vim.lsp.config("ty", {
   filetypes = { "python" },
-  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+  root_markers = { "pyproject.toml" },
 })
-vim.lsp.enable("pylsp")
-
-vim.lsp.config("mypy", {
-  filetypes = { "python" },
-  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-})
-vim.lsp.enable("mypy")
+vim.lsp.enable("ty")
 
 vim.lsp.config("ruff", {
   filetypes = { "python" },
-  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+  root_markers = { "pyproject.toml" },
   settings = {
     logLevel = "debug",
   },

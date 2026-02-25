@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable-pkgs, ... }:
 
 {
   programs.neovim = {
@@ -14,10 +14,9 @@
       intelephense
       lua-language-server
       nil
-      python313Packages.python-lsp-server
-      mypy
       sqls
       ruff
+      unstable-pkgs.ty
       typescript-language-server
       vscode-langservers-extracted
 

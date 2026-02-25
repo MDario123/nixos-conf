@@ -88,7 +88,7 @@
       homeConfigurations."mdario" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = { inherit inputs outputs; };
+        extraSpecialArgs = { inherit inputs outputs unstable-pkgs; };
         modules = [
           ./home-manager/home.nix
           ./home-manager/mpd.nix
