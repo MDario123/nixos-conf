@@ -1,10 +1,19 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  nix.settings.trusted-users = [ "root" "mdario" ];
+  nix.settings.trusted-users = [
+    "root"
+    "mdario"
+  ];
   users.users.mdario = {
     uid = 1000;
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "rtkit" "docker" ];
+    extraGroups = [
+      "wheel"
+      "audio"
+      "video"
+      "rtkit"
+      "docker"
+    ];
     packages = with pkgs; [
       aria2
       (nemo-with-extensions.override {
