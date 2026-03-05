@@ -243,7 +243,7 @@ in
         "firefox &"
         "slack &"
         "discord &"
-        "telegram-desktop &"
+        "Telegram &"
       ];
 
       "$mainMod" = "SUPER";
