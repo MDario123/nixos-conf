@@ -26,8 +26,6 @@
       libreoffice
       papirus-icon-theme
       wine
-      # for screen recording
-      obs-studio
 
       # to run .jar files, particularly JDownloader2
       jre
