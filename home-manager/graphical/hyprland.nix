@@ -248,10 +248,13 @@ in
 
       "$mainMod" = "SUPER";
 
-      "$current-volume" = "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %'";
-      "$notifyVolume" = "$current-volume | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && echo 'PLAY' | socat -u - UNIX-SENDTO:/tmp/mbas.sock";
+      "$current-volume" =
+        "pactl get-sink-volume @DEFAULT_SINK@ | rg left | awk -F '/' '{ print $2 }' | tr -d ' %'";
+      "$notifyVolume" =
+        "$current-volume | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Volume\" && echo 'PLAY' | socat -u - UNIX-SENDTO:/tmp/mbas.sock";
 
-      "$notifyBacklight" = "light -G | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Backlight\"";
+      "$notifyBacklight" =
+        "light -G | xargs -I _ notify-send -t 250 -h string:syncronous:volume -h int:value:_  \"Backlight\"";
 
       bind = [
         # hyprland management
@@ -278,7 +281,7 @@ in
         "$mainMod, T, exec, kitty --class 'Notas' taskwarrior-tui"
         "$mainMod SHIFT, K, exec, desktop_commands"
 
-        # Move focus 
+        # Move focus
         "$mainMod, H, cyclenext, prev"
         "$mainMod, L, cyclenext, "
         "$mainMod CTRL, H, swapnext, prev"
