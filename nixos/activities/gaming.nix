@@ -24,6 +24,9 @@
   ];
 
   programs.haguichi.enable = true;
+  services.tailscale = {
+    enable = true;
+  };
 
   programs.steam = {
     enable = true;
