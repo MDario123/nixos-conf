@@ -188,9 +188,9 @@ in
         preserve_split = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
+      gesture = [
+        "3, horizontal, workspace"
+      ];
 
       misc = {
         animate_manual_resizes = true;
