@@ -6,8 +6,6 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # Disable PSR, since it currently causes some important bugs
-  boot.kernelParams = [ "amdgpu.dcdebugmask=0x210" ];
 
   hardware.enableRedistributableFirmware = true;
   hardware.enableAllFirmware = true;
@@ -108,6 +106,16 @@
 
   # Screen backlight
   programs.light.enable = true;
+
+  # Cpu tweaks
+  powerManagement = {
+      enable = true;
+      cpuFreqGovernor = "performance";
+      cpufreq = {
+        min = 419421;
+        max = 5137904;
+      };
+  };
 
 
   specialisation.nvidialess = {
