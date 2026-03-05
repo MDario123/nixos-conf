@@ -178,7 +178,8 @@ in
           "windowsIn, 1, 5, myBezier"
           "windowsOut, 0"
           "windowsMove, 0"
-          "fade, 0"
+          "layers, 1, 3, myBezier"
+          "fade, 1, 3, myBezier"
           "workspaces, 1, 6, myBezier"
         ];
       };
