@@ -117,7 +117,9 @@ in
     enable = true;
     settings = {
       monitor = [
-        ", preferred, auto, 1"
+        "desc:Chimei Innolux Corporation 0x162D, preferred, 0x0, 1"
+        "desc:Dell Inc. DELL P2314H J8J31458CFVS, preferred, 1920x-840, 1, transform, 1"
+        ", preferred, auto-right, 1"
       ];
 
       input = {
