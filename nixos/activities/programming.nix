@@ -12,7 +12,6 @@
     ghc
     git-credential-oauth
     hyperfine
-    vscode
 
     ldtk
 
