@@ -141,6 +141,9 @@ in
         touchpad = {
           natural_scroll = true;
         };
+        tablet = {
+          output = "current";
+        };
       };
 
       general = {
