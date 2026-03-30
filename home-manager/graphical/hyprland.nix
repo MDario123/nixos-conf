@@ -251,7 +251,6 @@ in
         "pactl upload-sample ${config.home.homeDirectory}/.local/share/sounds/MDario-theme/tap-notification.wav &"
 
         "firefox &"
-        "slack &"
         "discord &"
         "Telegram &"
       ];
