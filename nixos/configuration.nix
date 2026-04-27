@@ -26,6 +26,7 @@
           fcitx5-pinyin-moegirl
           fcitx5-table-extra
         ];
+        waylandFrontend = true;
       };
     };
   };
