@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ unstable-pkgs, ... }:
 {
   imports = [
     ./nvidia.nix
     ./auto-generated.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = unstable-pkgs.linuxPackages_latest;
 
   hardware.enableRedistributableFirmware = true;
   hardware.enableAllFirmware = true;
