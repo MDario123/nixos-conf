@@ -179,7 +179,7 @@ vim.lsp.enable("gopls")
 
 -- C/C++
 vim.lsp.config("clangd", {
-  filetypes = { "c", "cpp" },
+  filetypes = { "c", "cpp", "cuda" },
   root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
   cmd = { "clangd", "--background-index", "--clang-tidy" },
 })
