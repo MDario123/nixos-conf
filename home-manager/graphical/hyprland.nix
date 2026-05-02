@@ -286,7 +286,6 @@ in
         "$mainMod, N, exec, mkdir -p ~/Documents/Notas; ls -1 ~/Documents/Notas | fuzzel -d | xargs -I {} kitty --class Notas -d ~/Documents/Notas nvim {}"
         "$mainMod, V, exec, hdrop pavucontrol"
         "$mainMod, B, exec, hdrop blueman-manager"
-        "$mainMod, W, exec, lutris lutris:rungameid/2"
         "$mainMod, T, exec, kitty --class 'Notas' taskwarrior-tui"
         "$mainMod SHIFT, K, exec, desktop_commands"
 
