@@ -222,3 +222,10 @@ vim.lsp.config("sqls", {
   workspace_required = true,
 })
 vim.lsp.enable("sqls")
+
+-- Zig
+vim.lsp.config("zls", {
+  filetypes = { "zig" },
+  root_markers = { "build.zig", "build.zig.zon" },
+})
+vim.lsp.enable("zls")
