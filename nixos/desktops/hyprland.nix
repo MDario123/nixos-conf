@@ -22,9 +22,10 @@
     decibels
     eww
     hdrop
-    hypridle
-    hyprlock
-    hyprpaper
+    unstable-pkgs.hypridle
+    unstable-pkgs.hyprlock
+    unstable-pkgs.hyprpaper
+    unstable-pkgs.hyprshutdown
     hyprsunset
     libnotify
     mako
