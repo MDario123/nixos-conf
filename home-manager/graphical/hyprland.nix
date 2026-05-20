@@ -119,6 +119,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
     settings = {
       monitor = [
         "desc:Chimei Innolux Corporation 0x162D, preferred, 0x0, 1"
