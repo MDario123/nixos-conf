@@ -1,4 +1,5 @@
-{  pkgs
+{  pkgs,
+  unstable-pkgs
 , ...
 }:
 
@@ -21,6 +22,9 @@
     # Game
     osu-lazer
     prismlauncher
+
+    unstable-pkgs.deadlock-mod-manager
+    unstable-pkgs.rustdesk
   ];
 
   programs.haguichi.enable = true;
