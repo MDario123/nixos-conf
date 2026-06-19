@@ -51,6 +51,16 @@
     };
   };
 
+  # Filesystems
+  programs.fuse.enable = true;
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024; # 32 GiB
+    }
+  ];
+
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     bandwhich
@@ -59,6 +69,7 @@
     fzf
     home-manager
     jq
+    mergerfs
     neovim
     ouch
     pulseaudioFull
