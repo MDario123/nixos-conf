@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable-pkgs, ... }:
 
 {
   programs.git = {
@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     cargo
+    unstable-pkgs.claude-code
     gcc
     gh
     # haskell compiler (here for the interactive version "ghci")
