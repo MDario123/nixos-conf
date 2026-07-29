@@ -1,5 +1,5 @@
-{  pkgs,
-  unstable-pkgs
+{ pkgs
+, unstable-pkgs
 , ...
 }:
 
@@ -10,6 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     flitter
+    heroic
     lutris
     mangohud
     ppsspp
@@ -24,7 +25,7 @@
     prismlauncher
 
     unstable-pkgs.deadlock-mod-manager
-    unstable-pkgs.rustdesk
+    unstable-pkgs.rustdesk-flutter
   ];
 
   programs.haguichi.enable = true;
