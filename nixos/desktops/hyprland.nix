@@ -11,6 +11,7 @@
   services.displayManager.defaultSession = "hyprland";
 
   xdg.mime.defaultApplications."inode/directory" = "nemo.desktop";
+  xdg.mime.defaultApplications."video/*" = "vlc.desktop";
 
   programs.hyprland = {
     enable = true;

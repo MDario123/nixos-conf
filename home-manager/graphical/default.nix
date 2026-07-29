@@ -23,7 +23,7 @@
     settings = {
       opener = {
         play = [
-          { run = "qmplay2 \"$@\""; orphan = true; for = "unix"; }
+          { run = "vlc \"$@\""; orphan = true; for = "unix"; }
         ];
       };
     };
