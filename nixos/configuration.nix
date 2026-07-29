@@ -73,7 +73,12 @@
     neovim
     ouch
     pulseaudioFull
-    python3
+    (python3.withPackages (
+      ps: with ps; [
+        pandas
+        matplotlib
+      ]
+    ))
     ripgrep
     socat
     starship
