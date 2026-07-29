@@ -24,9 +24,4 @@
     mpc
     ymuse
   ];
-
-  fileSystems."/export/Music" = {
-    device = "/home/mdario/Music";
-    options = [ "bind" ];
-  };
 }
