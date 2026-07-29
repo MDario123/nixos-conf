@@ -8,6 +8,9 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    withPython3 = false;
+    withRuby = false;
+
     extraPackages = with pkgs; [
       # LSPs
       gopls
@@ -36,7 +39,7 @@
       ripgrep
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/term.lua}
     '';

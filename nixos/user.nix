@@ -22,9 +22,6 @@
       })
       filezilla
       ffmpeg
-      # web browser
-      firefox
-      chromium
       # for reading ebooks
       foliate
       # terminal emulator

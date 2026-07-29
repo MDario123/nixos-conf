@@ -2,10 +2,11 @@
   description = "Home Manager configuration of mdario";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-old.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     aagl = {
@@ -27,18 +28,27 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      aagl,
-      mbas,
-      ...
+    { self
+    , nixpkgs
+    , nixpkgs-old
+    , nixpkgs-unstable
+    , home-manager
+    , aagl
+    , mbas
+    , ...
     }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
+      old-pkgs = import nixpkgs-old {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "qtwebengine-5.15.19"
+          ];
+        };
+      };
       pkgs = import nixpkgs {
         inherit system;
         config = {
@@ -61,13 +71,17 @@
               inputs
               outputs
               unstable-pkgs
+              old-pkgs
               ;
           };
           modules = [
             # inputs.isw-nix.nixosModule
             {
               environment.systemPackages = [
-                (mbas.packages.${system}.mbas.override { NIX_ENFORCE_NO_NATIVE=false; build="RELEASE_NATIVE"; })
+                (mbas.packages.${system}.mbas.override {
+                  NIX_ENFORCE_NO_NATIVE = false;
+                  build = "RELEASE_NATIVE";
+                })
               ];
             }
             ./nixos/hardware/hp

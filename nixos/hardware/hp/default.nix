@@ -104,9 +104,6 @@
     };
   };
 
-  # Screen backlight
-  programs.light.enable = true;
-
   # Cpu tweaks
   powerManagement = {
       enable = true;

@@ -2,6 +2,7 @@
 {
   gtk = {
     enable = true;
+    gtk4.theme = config.gtk.theme;
     theme = {
       name = "catppuccin-mocha-mauve-compact+rimless";
       package = pkgs.catppuccin-gtk.override {

@@ -1,23 +1,27 @@
-require("nvim-treesitter.install").prefer_git = true
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(event)
+    local parsers = require("nvim-treesitter.parsers")
+    if not parsers[event.match] then
+      return
+    end
 
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
+    vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
+    vim.wo[0][0].foldminlines = 10
+    vim.wo[0][0].foldenable = false
+  end,
 })
 
-vim.treesitter.query.set("python", "injections", [[
+vim.treesitter.query.set(
+  "python",
+  "injections",
+  [[
 (
 (string_content) @injection.content
 (#match? @injection.content "^[ \n]*--[ \n]*sql")
 (#set! injection.language "sql")
 )
-]])
-
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.wo.foldminlines = 10
-vim.wo.foldenable = false
+]]
+)

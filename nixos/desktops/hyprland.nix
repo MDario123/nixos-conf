@@ -15,11 +15,11 @@
 
   programs.hyprland = {
     enable = true;
-    package = unstable-pkgs.hyprland;
   };
 
   environment.systemPackages = with pkgs; [
     # alsa-utils
+    brightnessctl
     decibels
     eww
     hdrop

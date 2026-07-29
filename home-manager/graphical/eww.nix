@@ -1,8 +1,4 @@
 { ... }:
 {
-  programs.eww = {
-    enable = true;
-    enableZshIntegration = true;
-    configDir = ./eww;
-  };
+  home.file.".config/eww".source = ./eww;
 }

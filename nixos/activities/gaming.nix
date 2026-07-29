@@ -1,5 +1,6 @@
 { pkgs
 , unstable-pkgs
+, old-pkgs
 , ...
 }:
 
@@ -18,7 +19,7 @@
     steam
     steam-run
     vulkan-tools
-    teamspeak3
+    old-pkgs.teamspeak3
 
     # Game
     osu-lazer
