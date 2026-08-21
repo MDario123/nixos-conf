@@ -3,14 +3,21 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "$all$character";
+      format = "$time$all$character";
       character = {
         success_symbol = "[=>>](bold green)";
         error_symbol = "[=>>](bold red)";
       };
       add_newline = false;
 
+      time = {
+        disabled = false;
+        format = "[\\[$time\\]]($style) ";
+        symbol = "󰥔 ";
+      };
+
       aws = {
+        disabled = true;
         format = "[\\[$symbol$region\\]]($style)";
         symbol = "☁️ ";
       };
