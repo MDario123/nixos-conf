@@ -13,7 +13,6 @@
       time = {
         disabled = false;
         format = "[\\[$time\\]]($style) ";
-        symbol = "󰥔 ";
       };
 
       aws = {
