@@ -1,10 +1,10 @@
 (include "./bar/center/mpd_controller.yuck")
 (include "./bar/center/clock.yuck")
-(include "./bar/center/pomodoro_timer.yuck")
+(include "./bar/center/handy-toggle-transcript.yuck")
 
 (defwidget center []
   (centerbox :halign "center" :hexpand true :width 238
   (mpd_controller)
   (clock)
-  (pomodoro-timer)
+  (handy-toggle-transcript)
 ))

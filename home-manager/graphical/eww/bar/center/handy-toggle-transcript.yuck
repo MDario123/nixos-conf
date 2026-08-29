@@ -1,0 +1,7 @@
+(defwidget handy-toggle-transcript []
+  (button 
+    :class "basic-button border big-font colored handy-toggle-transcript" 
+    :onclick "handy --toggle-transcription" 
+      "H"
+  )
+)
