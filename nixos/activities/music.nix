@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     easyeffects
+    blanket
     mpc
     ymuse
   ];
