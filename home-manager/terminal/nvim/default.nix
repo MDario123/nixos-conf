@@ -115,6 +115,13 @@
         type = "lua";
         config = builtins.readFile ./plugin/none-ls.lua;
       }
+      # Debugging
+      {
+        plugin = nvim-dap;
+        type = "lua";
+        config = builtins.readFile ./plugin/dap.lua;
+      }
+      nvim-dap-ui
 
       # Completion
       luasnip
