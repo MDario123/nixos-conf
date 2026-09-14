@@ -73,7 +73,8 @@ if gdb_path ~= "" then
       cwd = "${workspaceFolder}",
       program = function()
         return pick_file(function(path)
-          return path
+          vim.fn.setreg("p", path)
+          return nil
         end, { prompt = "Select executable", file_type = "x", ignore_vcs = false })
       end,
       stopAtBeginningOfMainSubprogram = true,
